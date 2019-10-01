@@ -6,14 +6,15 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 
 app = Flask(__name__)
+app.secret_key = os.getenv("SECRET")
 app.config["MONGO_DBNAME"] = 'extinction_rebellion'
-app.config["MONGO_URI"] = os.getenv('mongodb+srv://new:1234@firstcluster-jvp2j.mongodb.net/test?retryWrites=true&w=majority', 'mongodb://localhost')
+app.config["MONGO_URI"] = 'mongodb+srv://new:1234@firstcluster-jvp2j.mongodb.net/extinction_rebellion?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
 @app.route('/')
-def say_hello():
-    return '123'
+def get_records():
+    return render_template("records.html", records=mongo.db.repo.find())
 
 
 if __name__ == '__main__':
