@@ -1,0 +1,19 @@
+/* font not rendering properly - TO FIX 
+
+@font-face {
+    font-family: Fucxed;
+    font-display: swap;
+    src: url('/static/media/FUCXEDCAPSLatin-Regular.otf') format("woff2"), url('/static/media/FUCXEDCAPSLatin-Regular.woff') format("woff")
+}*/
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Fucxed, sans-serif;
+}
+
+body,
+.content {
+    background-color: red;
+}
