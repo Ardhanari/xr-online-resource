@@ -20,10 +20,16 @@ def get_records():
 # route allowing displaying one record based on its id 
 # and possibly editing it (if user is logged in)
 @app.route('/record/<record_id>')
-def display_record(): 
-    # ????
-    record_id = mongo.db.repo._id.find()
-    return render_template("single-record.html", record_id)
+def display_record(record_id): 
+    # returns one record with id passed through
+    selected_record = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
+    return render_template("single-record.html", record=selected_record)
+    
+# route to display form allowing to edit selected record    
+@app.route('/edit/<record_id>')
+def edit_record(record_id):
+    selected_record = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
+    return render_template("edit-record.html", record=selected_record, categories=mongo.db.categories.find())
     
 # route for displaying form that allows adding new link to the database
 @app.route('/add')
