@@ -89,6 +89,27 @@ def deleted(record_id):
 @app.route('/login')
 def user_login():
     return render_template("login.html")
+    
+
+# voting fuction
+@app.route('/upvote/<record_id>')
+def upvote_now(record_id):
+    mongo.db.repo.find_one_and_update(
+        {'_id': ObjectId(record_id)},
+        {'$inc': {'votes': 1}}
+    )
+    return redirect(url_for('get_records'))
+
+@app.route('/downvote/<record_id>')   
+def downvote_now(record_id):
+    mongo.db.repo.find_one_and_update(
+        {'_id': ObjectId(record_id)},
+        {'$inc': {'votes': -1}}
+    )
+    return redirect(url_for('get_records'))    
+# def vote_now(record_id):
+#     current_count = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
+#     return "Hello"
 
 
 if __name__ == '__main__':

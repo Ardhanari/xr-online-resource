@@ -6,7 +6,16 @@
         <p>
         <a href="record/{{record._id}}">
             <h4>{{record.title}}</h4></a>
-        {{record.desc}}
+        {{record.desc}}<br>
+        {{ record.votes }} <a href="{{url_for('upvote_now', record_id=record._id)}}">UPVOTE NOW</a><BR>
+            <a href="{{url_for('downvote_now', record_id=record._id)}}">DOWNVOTE NOW</a>
+        
+        checkbox - if checked / nope, on toggle
+        upvote_now
+        else
+        downvote_now
+        
+        
         </p>
     {% endfor %}
 {% endblock %}
