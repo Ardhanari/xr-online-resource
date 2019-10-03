@@ -1,0 +1,53 @@
+{% extends 'base.html' %} 
+
+{% block title %}Add new link{% endblock %} 
+
+{% block content %}
+
+<h3>Add new link</h3>
+
+<!-- Title of the record -->
+<div class="row">
+    <div class="input-field col s6">
+        <input id="title" name="title" type="text" class="validate">
+        <label for="title">Title</label>
+    </div>
+</div>
+
+<!-- Link -->
+<div class="row">
+    <div class="input-field col s6">
+        <input id="url" name="url" type="text" class="validate">
+        <label for="url">URL</label>
+    </div>
+</div>
+
+<!-- Description of the link -->
+<div class="row">
+    <form class="col s6">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="desc" class="materialize-textarea"></textarea>
+                <label for="desc">Description of the link</label>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Category selection -->
+<div class="input-field col s6">
+    <select id="category" name="category">
+        <option value="" disabled>Choose category:</option>
+        {% for category in categories %}
+        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+        {% endfor %}
+      </optgroup>
+    </select>
+    <label>Choose category:</label>
+</div>
+
+
+
+
+{% endblock %}

@@ -21,12 +21,17 @@ def get_records():
 # and possibly editing it (if user is logged in)
 @app.route('/record/<record_id>')
 def display_record(): 
+    # ????
+    record_id = mongo.db.repo._id.find()
     return render_template("single-record.html", record_id)
     
 # route for displaying form that allows adding new link to the database
 @app.route('/add')
 def add_record():
-    return render_template("add-record.html")
+    return render_template("add-record.html", categories = mongo.db.categories.find())
+    
+# route commiting new record to the database 
+@app.route('/')
 
 # view displaying categories available, together with their descriptions
 @app.route('/categories')
