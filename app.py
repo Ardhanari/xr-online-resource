@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, flash, render_template, redirect, request, url_for
 # MongoDB for flask
 from flask_pymongo import PyMongo
 # This module allows you to create and parse ObjectIDs without a reference to the mongodb or bson modules.
@@ -8,7 +8,7 @@ from bson.objectid import ObjectId
 from datetime import datetime
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET")
+app.secret_key = "chonk"
 app.config["MONGO_DBNAME"] = 'extinction_rebellion'
 app.config["MONGO_URI"] = 'mongodb+srv://new:1234@firstcluster-jvp2j.mongodb.net/extinction_rebellion?retryWrites=true&w=majority'
 
@@ -50,6 +50,7 @@ def commit_record():
     form_values["votes"] = int(0)
     # inserts new record taking values form the form on /add 
     records.insert_one(form_values)
+    flash('New entry added!')
     return redirect(url_for('get_records'))
     
 # route for updating existing record to the database 
@@ -62,6 +63,7 @@ def update_record(record_id):
         'url': request.form.get('url'),
         'desc': request.form.get('desc'),
         'category': request.form.get('category')})
+    flash('Entry updated!')
     return redirect(url_for('get_records'))
 
 # view displaying categories available, together with their descriptions
