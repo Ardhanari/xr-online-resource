@@ -12,9 +12,31 @@ app.config["MONGO_URI"] = 'mongodb+srv://new:1234@firstcluster-jvp2j.mongodb.net
 
 mongo = PyMongo(app)
 
+# landing page - displays all the records in the database 
 @app.route('/')
 def get_records():
     return render_template("records.html", records=mongo.db.repo.find())
+    
+# route allowing displaying one record based on its id 
+# and possibly editing it (if user is logged in)
+@app.route('/record/<record_id>')
+def display_record(): 
+    return render_template("single-record.html", record_id)
+    
+# route for displaying form that allows adding new link to the database
+@app.route('/add')
+def add_record():
+    return render_template("add-record.html")
+
+# view displaying categories available, together with their descriptions
+@app.route('/categories')
+def show_categories():
+    return render_template("categories.html")
+    
+# route for displaying login page
+@app.route('/login')
+def user_login():
+    return render_template("login.html")
 
 
 if __name__ == '__main__':
