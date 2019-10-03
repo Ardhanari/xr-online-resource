@@ -44,6 +44,17 @@ def commit_record():
     records.insert_one(request.form.to_dict())
     return redirect(url_for('get_records'))
     
+# route for updating existing record to the database 
+@app.route('/update_record/<record_id>', methods=["POST"])
+def update_record(record_id):
+    records = mongo.db.repo
+    # inserts new record taking values form the form on /edit 
+    records.update({'_id': ObjectId(record_id)},
+        {'title': request.form.get('title'),
+        'url': request.form.get('url'),
+        'desc': request.form.get('desc'),
+        'category': request.form.get('category')})
+    return redirect(url_for('get_records'))
 
 # view displaying categories available, together with their descriptions
 @app.route('/categories')

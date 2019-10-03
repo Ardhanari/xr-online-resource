@@ -1,12 +1,12 @@
-{% extends 'base.html' %} {% block title %}Add new link{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block title %}Update link{% endblock %} {% block content %}
 
-<h3>Add new link</h3>
+<h3>Update link </h3>
 
-<form action="{{ url_for('commit_record') }}" method="POST" class="col s6">
+<form action="{{ url_for('update_record', record_id=record._id) }}" method="POST" class="col s6">
     <!-- Title of the record -->
     <div class="row">
         <div class="input-field col s6">
-            <input id="title" name="title" type="text" class="validate">
+            <input id="title" name="title" type="text" class="validate" value="{{ record.title }}">
             <label for="title">Title</label>
         </div>
     </div>
@@ -14,7 +14,7 @@
     <!-- Link -->
     <div class="row">
         <div class="input-field col s6">
-            <input id="url" name="url" type="text" class="validate">
+            <input id="url" name="url" type="text" class="validate" value={{ record.url }}>
             <label for="url">URL</label>
         </div>
     </div>
@@ -25,7 +25,7 @@
     <div class="row">
         <div class="input-field col s6">
             <i class="material-icons prefix">mode_edit</i>
-            <textarea id="desc" name="desc" class="materialize-textarea"></textarea>
+            <textarea id="desc" name="desc" class="materialize-textarea">{{ record.desc }}</textarea>
             <label for="desc">Description of the link</label>
         </div>
     </div>
@@ -38,7 +38,11 @@
         <option value="" disabled>Choose category:</option>
         
         {% for category in categories %}
-        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+            {% if category.category_name == record.category %}
+            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+            {% else %}
+            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+            {% endif %}
         {% endfor %}
         
       </optgroup>
@@ -47,7 +51,7 @@
     </div>
 
 
-    <button class="btn waves-effect waves-light" type="submit" name="action">Add link
+    <button class="btn waves-effect waves-light" type="submit" name="action">Update information
         <i class="material-icons right">send</i>
     </button>
 
