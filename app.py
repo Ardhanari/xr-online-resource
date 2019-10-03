@@ -4,6 +4,8 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 # This module allows you to create and parse ObjectIDs without a reference to the mongodb or bson modules.
 from bson.objectid import ObjectId 
+# module allowing to retrieve current date and time in UTC format
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET")
@@ -40,8 +42,14 @@ def add_record():
 @app.route('/commit_record', methods=["POST"])
 def commit_record():
     records = mongo.db.repo
+    # requests form values and places them in the dictionary
+    form_values = request.form.to_dict()
+    # adds values for date time when the record is added...
+    form_values["date_added"] = datetime.utcnow()
+    # ... and a number of votes (default = 0)
+    form_values["votes"] = int(0)
     # inserts new record taking values form the form on /add 
-    records.insert_one(request.form.to_dict())
+    records.insert_one(form_values)
     return redirect(url_for('get_records'))
     
 # route for updating existing record to the database 
