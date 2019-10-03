@@ -61,6 +61,20 @@ def update_record(record_id):
 def show_categories():
     return render_template("categories.html")
     
+# view asking user for confirmation after pressing delete
+@app.route('/delete/<record_id>')
+def delete_record(record_id):
+    selected_record = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
+    return render_template('delete.html', record=selected_record)
+
+# view asking user for confirmation after pressing delete
+@app.route('/record_deleted/<record_id>')
+def deleted(record_id):
+    selected_record = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
+    mongo.db.deleted.insert(selected_record)
+    mongo.db.repo.remove(selected_record)
+    return redirect(url_for('get_records'))
+    
 # route for displaying login page
 @app.route('/login')
 def user_login():

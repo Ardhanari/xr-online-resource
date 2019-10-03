@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block title %}Confirm deletion{% endblock %} {% block content %}
+
+Are you sure you want to delete "{{record.title}}"? 
+
+<a href="/record_deleted/{{record._id}}">Yes, delete</a>
+<a href="{{ url_for('display_record', record_id=record._id) }}">Cancel</a>
+
+{% endblock %}
