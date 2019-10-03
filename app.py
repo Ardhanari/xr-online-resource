@@ -31,7 +31,13 @@ def add_record():
     return render_template("add-record.html", categories = mongo.db.categories.find())
     
 # route commiting new record to the database 
-@app.route('/')
+@app.route('/commit_record', methods=["POST"])
+def commit_record():
+    records = mongo.db.repo
+    # inserts new record taking values form the form on /add 
+    records.insert_one(request.form.to_dict())
+    return redirect(url_for('get_records'))
+    
 
 # view displaying categories available, together with their descriptions
 @app.route('/categories')
