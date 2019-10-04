@@ -33,6 +33,11 @@
                 <li><a href="{{ url_for('get_records') }}"><i class="material-icons left">cloud</i> Home</a></li>
                 <li><a href="{{ url_for('add_record') }}"><i class="material-icons left">cloud</i> Add new link</a></li>
                 <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">cloud</i> Categories</a></li>
+                {% if "username" in session %}
+                    <li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">cloud</i> Log out</a></li>
+                {% else %} 
+                    <li><a href="{{ url_for('user_login') }}"><i class="material-icons left">cloud</i> Log in</a></li>
+                {%endif%}
                 <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">search</i> Search</a></li>
             </ul>
         </div>
@@ -42,6 +47,11 @@
         <li><a href="{{ url_for('get_records') }}"><i class="material-icons left">cloud</i> Home</a></li>
         <li><a href="{{ url_for('add_record') }}"><i class="material-icons left">cloud</i> Add new link</a></li>
         <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">cloud</i> Categories</a></li>
+        {% if "username" in session %}
+            <li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">cloud</i> Log out</a></li>
+            {% else %} 
+            <li><a href="{{ url_for('user_login') }}"><i class="material-icons left">cloud</i> Log in</a></li>
+        {%endif%}
         <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">search</i> Search</a></li>
     </ul>
 
