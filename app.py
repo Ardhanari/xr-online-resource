@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash, render_template, redirect, request, url_for
+from flask import Flask, flash, render_template, redirect, request, session, url_for
 # MongoDB for flask
 from flask_pymongo import PyMongo
 # This module allows you to create and parse ObjectIDs without a reference to the mongodb or bson modules.
@@ -86,10 +86,22 @@ def deleted(record_id):
     return redirect(url_for('get_records'))
     
 # route for displaying login page
-@app.route('/login')
+@app.route('/login', methods=["GET", "POST"])
 def user_login():
+    if request.method == "POST":
+        session["username"] = request.form["username"]
+        flash('You were just logged in')
+    # if user is already logged in, they are redirected to main page
+    if "username" in session: 
+        return redirect(url_for('get_records')) # ????????????????????????? think what to do with it
     return render_template("login.html")
     
+@app.route('/logout')
+def user_logout():
+    # clears session entirely, removing cookie as well
+    session.clear()
+    flash('You were logged out!')
+    return redirect(url_for('get_records'))
 
 # voting fuction
 @app.route('/upvote/<record_id>')
@@ -107,9 +119,6 @@ def downvote_now(record_id):
         {'$inc': {'votes': -1}}
     )
     return redirect(url_for('get_records'))    
-# def vote_now(record_id):
-#     current_count = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
-#     return "Hello"
 
 
 if __name__ == '__main__':
