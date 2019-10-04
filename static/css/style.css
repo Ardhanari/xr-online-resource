@@ -11,9 +11,11 @@ h2,
 h3,
 h4 {
     font-family: Fucxed, sans-serif;
+    color: #ffffff;
 }
 
 body,
 .content {
-    background-color: red;
+    background-color: #202020;
+    color: #fff;
 }
