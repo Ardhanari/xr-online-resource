@@ -26,3 +26,21 @@ nav {
 div.content {
     color: #fff;
 }
+
+.vote_count {
+    text-align: right;
+}
+
+a.vote_count {
+    color: 	#00FF66;
+    font-size: 1.2em;
+    line-height: 1em;
+}
+
+.no, a.no {
+    color: red;
+}
+
+.yes, a.yes {
+    color: #00FF66;
+}

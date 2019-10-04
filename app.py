@@ -71,9 +71,9 @@ def update_record(record_id):
 def show_categories():
     return render_template("categories.html", categories=mongo.db.categories.find())
     
-@app.route('/categories/<category_id>')
-def single_category(category_id):
-    selected_category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+@app.route('/categories/<category_name>')
+def single_category(category_name):
+    selected_category = mongo.db.categories.find_one({"category_name": category_name})
     return render_template("single_category.html", category=selected_category)
     
 # view asking user for confirmation after pressing delete
@@ -88,6 +88,7 @@ def deleted(record_id):
     selected_record = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
     mongo.db.deleted.insert(selected_record)
     mongo.db.repo.remove(selected_record)
+    flash('Entry deleted!')
     return redirect(url_for('get_records'))
     
 # route for displaying login page
