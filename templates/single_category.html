@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block title %}{{ category.category_name }}{% endblock %}
+
+{% block breadcrumbs %}
+
+<a href ="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('show_categories') }}">Categories</a> > <a href="{{ url_for('show_categories') }}">{{ category.category_name }}</a> 
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Title of the record -->
+<h3>{{ category.category_name }}</h3>
+
+
+{% endblock %}

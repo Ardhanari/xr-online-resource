@@ -69,7 +69,12 @@ def update_record(record_id):
 # view displaying categories available, together with their descriptions
 @app.route('/categories')
 def show_categories():
-    return render_template("categories.html")
+    return render_template("categories.html", categories=mongo.db.categories.find())
+    
+@app.route('/categories/<category_id>')
+def single_category(category_id):
+    selected_category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return render_template("single_category.html", category=selected_category)
     
 # view asking user for confirmation after pressing delete
 @app.route('/delete/<record_id>')

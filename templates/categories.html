@@ -1,5 +1,31 @@
+{% extends 'base.html' %} {% block title %}Browse categories{% endblock %}
 {% block breadcrumbs %}
 
 <a href ="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('show_categories') }}">Categories</a> 
+
+{% endblock %}
+
+{% block content %}
+<div class="row">
+{% for category in categories %}
+ 
+ 
+  
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{ category.category_name}}</span>
+          <p> {There should go <b>category.desc</b>} I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+        </div>
+        <div class="card-action right">
+          
+          <a href="{{ url_for('single_category', category_id=category._id) }}">This is a link to a single category page <i class="material-icons right">map</i></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+ 
 
 {% endblock %}
