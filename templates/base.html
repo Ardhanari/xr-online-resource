@@ -24,20 +24,20 @@
 
 <body>
 
+    <!-- navigation bar / large screen -->
     <nav>
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo right">Logo</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_records') }}"><i class="material-icons left">cloud</i> Home</a></li>
-                    <li><a href="{{ url_for('add_record') }}"><i class="material-icons left">cloud</i> Add new link</a></li>
-                    <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">cloud</i> Categories</a></li>
-                    <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">search</i> Search</a></li>
-                </ul>
-            </div>
-        </nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right hide-on-med-and-down">Extinction Rebellion - online resource</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="{{ url_for('get_records') }}"><i class="material-icons left">cloud</i> Home</a></li>
+                <li><a href="{{ url_for('add_record') }}"><i class="material-icons left">cloud</i> Add new link</a></li>
+                <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">cloud</i> Categories</a></li>
+                <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">search</i> Search</a></li>
+            </ul>
+        </div>
     </nav>
+    <!-- navigation / mobile -->
     <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('get_records') }}"><i class="material-icons left">cloud</i> Home</a></li>
         <li><a href="{{ url_for('add_record') }}"><i class="material-icons left">cloud</i> Add new link</a></li>
@@ -45,14 +45,23 @@
         <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">search</i> Search</a></li>
     </ul>
 
+    <!-- content -->
+
     <div class="content">
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        <ul class=flashes>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %} {% endwith %} {% block content %} {% endblock %}
+        <div class="row">
+            <div class="col s4">
+                <h1 class="center-align">Extinction Rebellion - online resource</h1>
+            </div>
+            <div class="col s8">
+                {% with messages = get_flashed_messages() %} {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %} {% endwith %} {% block content %} {% endblock %}
+            </div>
+        </div>
     </div>
 </body>
 

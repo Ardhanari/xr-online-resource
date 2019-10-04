@@ -14,8 +14,15 @@ h4 {
     color: #ffffff;
 }
 
-body,
-.content {
+body {
     background-color: #202020;
+    color: #fff;
+}
+
+nav {
+    background-color: #000000;
+}
+
+div.content {
     color: #fff;
 }
