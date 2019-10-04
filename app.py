@@ -74,7 +74,8 @@ def show_categories():
 @app.route('/categories/<category_name>')
 def single_category(category_name):
     selected_category = mongo.db.categories.find_one({"category_name": category_name})
-    return render_template("single_category.html", category=selected_category)
+    records_from_category = mongo.db.repo.find({"category": category_name})
+    return render_template("single_category.html", category=selected_category, records=records_from_category)
     
 # view asking user for confirmation after pressing delete
 @app.route('/delete/<record_id>')
