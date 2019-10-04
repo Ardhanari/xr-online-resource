@@ -1,4 +1,12 @@
-{% extends 'base.html' %} {% block title %}Login page{% endblock %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block breadcrumbs %}
+
+<a href ="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('user_login') }}">Log in</a>
+
+{% endblock %}
+
+{% block title %}Login page{% endblock %} {% block content %}
 
 <form method="POST">
     <label for="username">Username:</label>

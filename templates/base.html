@@ -49,9 +49,19 @@
 
     <div class="content">
         <div class="row">
+            
+            <!--title-->
             <div class="col s4">
                 <h1 class="center-align">Extinction Rebellion - online resource</h1>
             </div>
+            
+            
+            <!-- breadcrumbs --> 
+            
+            {% block breadcrumbs %} {% endblock %}
+            
+            <!--main content -->
+            
             <div class="col s8">
                 {% with messages = get_flashed_messages() %} {% if messages %}
                 <ul class=flashes>

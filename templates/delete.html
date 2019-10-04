@@ -1,4 +1,13 @@
-{% extends 'base.html' %} {% block title %}Confirm deletion{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block title %}Confirm deletion{% endblock %} 
+
+{% block breadcrumbs %}
+
+<a href ="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('show_categories') }}">Categories</a> > <a href="{{ url_for('show_categories') }}">{{ record.category }}</a> > <a href="{{ url_for('display_record', record_id=record._id) }}">{{ record.title }}</a> > <a href="{{ url_for('delete_record', record_id=record._id) }}">Delete {{ record.title }}</a>
+
+{% endblock %}
+
+
+{% block content %}
 
 Are you sure you want to delete "{{record.title}}"? 
 

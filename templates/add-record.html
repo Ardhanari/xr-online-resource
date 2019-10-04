@@ -1,4 +1,14 @@
-{% extends 'base.html' %} {% block title %}Add new link{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block title %}Add new link{% endblock %}
+
+
+{% block breadcrumbs %}
+
+<a href ="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('add_record') }}">Add new link</a> 
+
+{% endblock %}
+
+
+{% block content %}
 
 <h3>Add new link</h3>
 
