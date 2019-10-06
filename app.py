@@ -124,14 +124,18 @@ def user_logout():
     return redirect(url_for('get_records'))
 
 # voting fuction
+# upvote...
 @app.route('/upvote/<record_id>')
 def upvote_now(record_id):
     mongo.db.repo.find_one_and_update(
         {'_id': ObjectId(record_id)},
         {'$inc': {'votes': 1}}
     )
-    return redirect(url_for('get_records'))
+    # return redirect(url_for('get_records'))
+    print("Incremented!")
+    return
 
+#... and downvote
 @app.route('/downvote/<record_id>')
 def downvote_now(record_id):
     mongo.db.repo.find_one_and_update(
@@ -140,6 +144,19 @@ def downvote_now(record_id):
     )
     return redirect(url_for('get_records'))
 
+
+
+# sorting by...
+# ...date added
+
+def sorting_by_date():
+    mongo.db.repo.find().sort([("date", 1), ("votes", -1)])
+    mongo.db.repo.find().sort([("date", -1), ("votes", -1)])
+
+# ...votes
+def sorting_by_votes():
+    mongo.db.repo.find().sort([("votes", 1), ("date", -1)])
+    mongo.db.repo.find().sort([("votes", -1), ("date", -1)])
 
 # if __name__ == '__main__':
 #     app.run(host=os.environ.get('IP'),

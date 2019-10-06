@@ -35,7 +35,7 @@
                 <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">cloud</i> Categories</a></li>
                 {% if "username" in session %}
                     <li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">cloud</i> Log out</a></li>
-                {% else %} 
+                {% else %}
                     <li><a href="{{ url_for('user_login') }}"><i class="material-icons left">cloud</i> Log in</a></li>
                 {%endif%}
                 <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">search</i> Search</a></li>
@@ -49,7 +49,7 @@
         <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">cloud</i> Categories</a></li>
         {% if "username" in session %}
             <li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">cloud</i> Log out</a></li>
-            {% else %} 
+            {% else %}
             <li><a href="{{ url_for('user_login') }}"><i class="material-icons left">cloud</i> Log in</a></li>
         {%endif%}
         <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">search</i> Search</a></li>
@@ -59,19 +59,19 @@
 
     <div class="content">
         <div class="row">
-            
+
             <!--title-->
             <div class="col s4">
                 <h1 class="center-align">Extinction Rebellion - online resource</h1>
             </div>
-            
-            
-            <!-- breadcrumbs --> 
-            
+
+
+            <!-- breadcrumbs -->
+
             {% block breadcrumbs %} {% endblock %}
-            
+
             <!--main content -->
-            
+
             <div class="col s8">
                 {% with messages = get_flashed_messages() %} {% if messages %}
                 <ul class=flashes>
@@ -85,11 +85,29 @@
     </div>
 </body>
 
+<!-- materiaize initialization -->
 <script type="text/javascript">
     $(document).ready(function() {
         $('.sidenav').sidenav();
         $('select').formSelect();
     });
+</script>
+
+<!-- ajax voting -->
+<script>
+ $('.yes').bind('click', function(e){
+     e.preventDefault();
+     var url = $(this).attr('href');
+     $('.yes').load(url);
+
+  });
+
+  $('.no').bind('click', function(e){
+     e.preventDefault();
+     var url = $(this).attr('href');
+     $('.no').load(url);
+
+  });
 </script>
 
 </html>
