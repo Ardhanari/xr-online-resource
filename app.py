@@ -96,7 +96,20 @@ def deleted(record_id):
 @app.route('/login', methods=["GET", "POST"])
 def user_login():
     if request.method == "POST":
-        session["username"] = request.form["username"]
+        given_username = request.form["username"]
+        given_password = request.form["password"]
+        # looks up if user exists in the database
+        username_found = mongo.db.users.find_one({"login": given_username})
+        if username_found:
+           # compares passwords
+           if given_password == username_found["password"]:
+               session["username"] = request.form["username"]
+           else:
+               flash('Wrong password, try again!')
+               return redirect(url_for('user_login'))
+        else:
+            flash('Wrong username or password')
+            return redirect(url_for('user_login'))
         flash('You were just logged in')
     # if user is already logged in, they are redirected to main page
     if "username" in session:
