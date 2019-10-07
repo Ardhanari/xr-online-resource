@@ -17,7 +17,7 @@ mongo = PyMongo(app)
 # landing page - displays all the records in the database
 @app.route('/')
 def get_records():
-    return render_template("records.html", records=mongo.db.repo.find())
+    return render_template("records.html", records=mongo.db.repo.find().sort("date_added", -1)) # sorts from newest records to oldest
 
 # route allowing displaying one record based on its id
 # and possibly editing it (if user is logged in)
@@ -149,13 +149,16 @@ def upvote_now(record_id):
 # ...date added
 
 def sorting_by_date():
-    mongo.db.repo.find().sort([("date", 1), ("votes", -1)])
-    mongo.db.repo.find().sort([("date", -1), ("votes", -1)])
+    mongo.db.repo.find().sort([("date", -1), ("votes", -1)]) # newest first
+    mongo.db.repo.find().sort([("date", 1), ("votes", -1)]) # oldest first
+
+    return redirect(url_for('get_records'))
 
 # ...votes
 def sorting_by_votes():
-    mongo.db.repo.find().sort([("votes", 1), ("date", -1)])
-    mongo.db.repo.find().sort([("votes", -1), ("date", -1)])
+    mongo.db.repo.find().sort([("votes", 1), ("date", -1)]) # top votes first
+
+    return redirect(url_for('get_records'))
 
 # if __name__ == '__main__':
 #     app.run(host=os.environ.get('IP'),

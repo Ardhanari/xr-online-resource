@@ -1,5 +1,3 @@
-/* font not rendering properly - TO FIX */
-
 @font-face {
     font-family: Fucxed;
     font-display: swap;
@@ -43,4 +41,8 @@ a.vote_count {
 
 .yes, a.yes {
     color: #00FF66;
+}
+
+.dropdown-trigger {
+    display: inline;
 }

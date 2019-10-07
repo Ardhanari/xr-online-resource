@@ -3,6 +3,16 @@
 
 {% block content %}
 
+<!-- Dropdown Trigger -->
+  <a class='dropdown-trigger btn' href='#' data-target='sort-records-by'>Sort by <i class="material-icons">keyboard_arrow_down</i></a>
+
+  <!-- Dropdown Structure -->
+  <ul id='sort-records-by' class='dropdown-content'>
+    <li><a href="#!">Newest first</a></li>
+    <li><a href="#!">Oldest first</a></li>
+    <li><a href="#!">Top upvoted</a></li>
+  </ul>
+
     <!-- display records -->
     {% for record in records %}
         <p>
