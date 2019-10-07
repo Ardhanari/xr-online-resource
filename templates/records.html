@@ -27,11 +27,6 @@
 
             <a href="{{ url_for('user_login') }}" class="vote_count">{{ record.votes }}</a>
 
-            {% if "username" in session %}
-            <a href="{{url_for('downvote_now', record_id=record._id)}}" class="no"><i class="material-icons">thumb_down</i></a>
-            {% endif %}
-
-            <button id="click-btn" data-postid="{{ record._id }}"> Upvote </button>
         </div>
         </p>
         </div>

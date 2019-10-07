@@ -131,18 +131,17 @@ def upvote_now(record_id):
         {'_id': ObjectId(record_id)},
         {'$inc': {'votes': 1}}
     )
-    # return redirect(url_for('get_records'))
-    print("Incremented!")
-    return
+    return render_template("thumb_up.html", record=mongo.db.repo.find_one({'_id': ObjectId(record_id)}))
 
-#... and downvote
-@app.route('/downvote/<record_id>')
-def downvote_now(record_id):
-    mongo.db.repo.find_one_and_update(
-        {'_id': ObjectId(record_id)},
-        {'$inc': {'votes': -1}}
-    )
-    return redirect(url_for('get_records'))
+# downvoting will probably be removed
+# #... and downvote
+# @app.route('/downvote/<record_id>')
+# def downvote_now(record_id):
+#     mongo.db.repo.find_one_and_update(
+#         {'_id': ObjectId(record_id)},
+#         {'$inc': {'votes': -1}}
+#     )
+#     return render_template("thumb_up.html", record=mongo.db.repo.find_one({'_id': ObjectId(record_id)}))
 
 
 
