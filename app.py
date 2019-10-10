@@ -22,6 +22,7 @@ def get_records():
 # route allowing displaying one record based on its id
 # and possibly editing it (if user is logged in)
 @app.route('/record/<record_id>')
+@app.route('/categories/record/<record_id>')
 def display_record(record_id):
     # returns one record with id passed through
     selected_record = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
