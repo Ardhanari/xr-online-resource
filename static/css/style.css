@@ -21,8 +21,27 @@ nav {
     background-color: #000000;
 }
 
+.btn {
+    background-color: #000000;
+}
+
+.btn:hover {
+    background-color: gray;
+}
+
 div.content {
     color: #fff;
+}
+
+.sortoption {
+    display: flex; justify-content: flex-end;
+    margin-top: 20px;
+    margin-right: 20px
+}
+
+#sort-records-by {
+    position: absolute;
+    top: -40px;
 }
 
 .vote_count {
