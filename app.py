@@ -148,18 +148,23 @@ def upvote_now(record_id):
 # sorting by...
 # ...date added
 
+@app.route('/newest')
 def sorting_by_date_newest():
-    newest_records = mongo.db.repo.find().sort("date_added", -1).sort("votes", -1 ) # newest first
-    return redirect(url_for('get_records', records=newest_records))
+    newest_records=mongo.db.repo.find().sort("date_added", -1) # newest first
+    return render_template("records.html", records=newest_records)
 
+@app.route('/oldest')
 def sorting_by_date_oldest():
-    oldest_records=mongo.db.repo.find().sort([("date", 1), ("votes", -1)]) # oldest first
-    return redirect(url_for('get_records', records=oldest_records))
+    # records=mongo.db.repo.find()
+    oldest_records=mongo.db.repo.find().sort("date_added", 1) # oldest first
+    return render_template("records.html", records=oldest_records)
+    # return render_template("records.html", records=mongo.db.repo.find().sort("date_added", -1)) # sorts from newest records to oldest
 
 # ...votes
+@app.route('/top')
 def sorting_by_votes():
-    top_votes = mongo.db.repo.find().sort([("votes", 1), ("date", -1)]) # top votes first
-    return redirect(url_for('get_records', records=top_votes))
+    top_voted=mongo.db.repo.find().sort("votes", -1) # top voted first
+    return render_template("records.html", records=top_voted)
 
 # if __name__ == '__main__':
 #     app.run(host=os.environ.get('IP'),
