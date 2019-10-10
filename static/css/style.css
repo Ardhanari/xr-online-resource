@@ -7,7 +7,8 @@
 h1,
 h2,
 h3,
-h4 {
+h4,
+.brand-logo {
     font-family: Fucxed, sans-serif;
     color: #ffffff;
 }
@@ -31,6 +32,11 @@ nav {
 
 div.content {
     color: #fff;
+}
+
+.breadcrumbs {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .sortoption {
