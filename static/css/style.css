@@ -22,6 +22,10 @@ nav {
     background-color: #000000;
 }
 
+a {
+    color: #00ff66;
+}
+
 .btn {
     background-color: #000000;
 }
@@ -39,6 +43,10 @@ div.content {
     margin-bottom: 30px;
 }
 
+.breadcrumbs:empty {
+    display: none;
+}
+
 .sortoption {
     display: flex; justify-content: flex-end;
     margin-top: 20px;
@@ -48,6 +56,10 @@ div.content {
 #sort-records-by {
     position: absolute;
     top: -40px;
+}
+
+.description {
+     overflow: hidden;
 }
 
 .vote_count {
@@ -70,4 +82,8 @@ a.vote_count {
 
 .dropdown-trigger {
     display: inline;
+}
+
+.new_tab {
+    font-size: 16px;
 }

@@ -6,30 +6,27 @@
 <!-- Dropdown Trigger -->
   <div class="sortoption">
     <a class='dropdown-trigger btn' href='#' data-target='sort-records-by'>Sort by <i class="material-icons">keyboard_arrow_down</i></a>
-</div><div class="sortoption">
+</div>
   <!-- Dropdown Structure -->
   <ul id='sort-records-by' class='dropdown-content'>
     <li><a href="#!">Newest first</a></li>
     <li><a href="#!">Oldest first</a></li>
     <li><a href="#!">Top upvoted</a></li>
   </ul>
-</div>
+
 
     <!-- display records -->
     {% for record in records %}
-        <p>
+        <div class="record">
         <a href="record/{{record._id}}">
             <h4>{{ record.title }}</h4></a>
-            <a href="{{url_for('single_category', category_name=record.category)}}">{{ record.category }}</a>
-        <p style="white-space: pre-line">{{ record.desc }}</p>
-        {{ record.url }}
-
-        <br>
+            Category: <a href="{{url_for('single_category', category_name=record.category)}}">{{ record.category }}</a><br>
+            Visit the link: <a href="{{ record.url }}" target="_blank">{{ record.url }}</a> <i class="material-icons new_tab">open_in_new</i>
+        <div class="description"><p style="white-space: pre-line">{{ record.desc }}</p></div>
 
         <div class="row">
-            <div class="col s4" style="background-color: blue;">detail of the record link</div>
-            <div class="col s4" style="background-color: lightyellow;">
-        <!-- EDIT BUTTON --> BUTTON
+            <div class="col s4"><a href="{{url_for('display_record', record_id=record._id)}}">Details >></div>
+            <div class="col s4">
         </div>
         <!-- vote section -->
         <div class="vote_count col s4">
@@ -37,11 +34,11 @@
             <a href="{{url_for('upvote_now', record_id=record._id)}}" class="yes"><i class="material-icons">thumb_up</i></a>
             {% endif %}
 
-            <a href="{{ url_for('user_login') }}" class="vote_count">{{ record.votes }}</a>
+            Upvoted <span class="vote_count">{{ record.votes }}</span> times
 
         </div>
-        </p>
         </div>
         <div class="divider"></div>
+        </div>
     {% endfor %}
 {% endblock %}
