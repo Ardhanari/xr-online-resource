@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %}Confirm deletion{% endblock %} 
+{% extends 'base.html' %} {% block title %}Confirm deletion{% endblock %}
 
 {% block breadcrumbs %}
 
@@ -9,9 +9,18 @@
 
 {% block content %}
 
-Are you sure you want to delete "{{record.title}}"? 
+<div class="row">
+<div class="input-field col s8">
+<h4>Are you sure you want to delete "{{record.title}}"? </h4>
 
-<a href="/record_deleted/{{record._id}}">Yes, delete</a>
-<a href="{{ url_for('display_record', record_id=record._id) }}">Cancel</a>
+<div class="row">
+<div class="input-field col s8">
+The operation cannot be undone.</div></div>
+
+<div class="row">
+<div class="input-field col s8">
+<a class="btn delete_button" href="/record_deleted/{{record._id}}">Yes, delete</a>
+<a class="btn" href="{{ url_for('display_record', record_id=record._id) }}">No, cancel</a>
+</div></div>
 
 {% endblock %}

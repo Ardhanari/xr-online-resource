@@ -14,16 +14,16 @@
 <form action="{{ url_for('update_record', record_id=record._id) }}" method="POST" class="col s6">
     <!-- Title of the record -->
     <div class="row">
-        <div class="input-field col s6">
-            <input id="title" name="title" type="text" class="validate" value="{{ record.title }}">
+        <div class="input-field col s12">
+            <input id="title" name="title" type="text" class="validate" value="{{ record.title }}" required>
             <label for="title">Title</label>
         </div>
     </div>
 
     <!-- Link -->
     <div class="row">
-        <div class="input-field col s6">
-            <input id="url" name="url" type="text" class="validate" value={{ record.url }}>
+        <div class="input-field col s12">
+            <input id="url" name="url" type="url" class="validate" value="{{ record.url }}" required>
             <label for="url">URL</label>
         </div>
     </div>
@@ -32,7 +32,7 @@
 
 
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
             <i class="material-icons prefix">mode_edit</i>
             <textarea id="desc" name="desc" class="materialize-textarea">{{ record.desc }}</textarea>
             <label for="desc">Description of the link</label>
@@ -42,10 +42,11 @@
 
 
     <!-- Category selection -->
-    <div class="input-field col s6">
-        <select id="category" name="category">
+    <div class="row">
+    <div class="input-field col s12">
+        <select id="category" name="category" required>
         <option value="" disabled>Choose category:</option>
-        
+
         {% for category in categories %}
             {% if category.category_name == record.category %}
             <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
@@ -53,16 +54,17 @@
             <option value="{{ category.category_name }}">{{ category.category_name }}</option>
             {% endif %}
         {% endfor %}
-        
+
       </optgroup>
     </select>
         <label for="category">Choose category:</label>
-    </div>
+    </div></div>
 
-
+    <div class="row">
     <button class="btn waves-effect waves-light" type="submit" name="action">Update information
         <i class="material-icons right">send</i>
     </button>
+    </div>
 
 </form>
 
