@@ -60,6 +60,16 @@
         <label for="category">Choose category:</label>
     </div></div>
 
+    <!-- Two hidden fields to make it easy for keeping votes and date_added values
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="date" name="date" type="text" class="hidden" value="{{ record.date_added }}" required>
+        </div>
+        <div class="input-field col s12">
+            <input id="votes" name="votes" type="number" class="hidden" value="{{ record.votes }}" required>
+        </div>
+    </div> -->
+
     <div class="row">
     <button class="btn waves-effect waves-light" type="submit" name="action">Update information
         <i class="material-icons right">send</i>

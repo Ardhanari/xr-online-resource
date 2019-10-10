@@ -57,12 +57,12 @@ def commit_record():
 @app.route('/update_record/<record_id>', methods=["POST"])
 def update_record(record_id):
     records = mongo.db.repo
-    # inserts new record taking values form the form on /edit
-    records.update({'_id': ObjectId(record_id)},
+    # edits existing record taking values form the form on /edit
+    records.update({'_id': ObjectId(record_id)}, { '$set' :
         {'title': request.form.get('title'),
         'url': request.form.get('url'),
         'desc': request.form.get('desc'),
-        'category': request.form.get('category')})
+        'category': request.form.get('category')}})
     flash('Entry updated!')
     return redirect(url_for('get_records'))
 
@@ -148,17 +148,18 @@ def upvote_now(record_id):
 # sorting by...
 # ...date added
 
-def sorting_by_date():
-    mongo.db.repo.find().sort([("date", -1), ("votes", -1)]) # newest first
-    mongo.db.repo.find().sort([("date", 1), ("votes", -1)]) # oldest first
+def sorting_by_date_newest():
+    newest_records = mongo.db.repo.find().sort("date_added", -1).sort("votes", -1 ) # newest first
+    return redirect(url_for('get_records', records=newest_records))
 
-    return redirect(url_for('get_records'))
+def sorting_by_date_oldest():
+    oldest_records=mongo.db.repo.find().sort([("date", 1), ("votes", -1)]) # oldest first
+    return redirect(url_for('get_records', records=oldest_records))
 
 # ...votes
 def sorting_by_votes():
-    mongo.db.repo.find().sort([("votes", 1), ("date", -1)]) # top votes first
-
-    return redirect(url_for('get_records'))
+    top_votes = mongo.db.repo.find().sort([("votes", 1), ("date", -1)]) # top votes first
+    return redirect(url_for('get_records', records=top_votes))
 
 # if __name__ == '__main__':
 #     app.run(host=os.environ.get('IP'),
