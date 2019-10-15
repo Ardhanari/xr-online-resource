@@ -34,6 +34,15 @@ a {
     background-color: gray;
 }
 
+.sidenav {
+    background-color: #000000;
+}
+
+.sidenav li>a,
+.sidenav li>a>i.material-icons {
+    color: #ffffff;
+}
+
 div.content {
     color: #fff;
 }

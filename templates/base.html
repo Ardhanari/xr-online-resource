@@ -49,14 +49,25 @@
 
 	<!-- navigation / mobile -->
 	<ul class="sidenav" id="mobile-demo">
-		<li><a href="{{ url_for('get_records') }}"><i class="material-icons left">cloud</i> Home</a></li>
-		<li><a href="{{ url_for('add_record') }}"><i class="material-icons left">cloud</i> Add new link</a></li>
-		<li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">cloud</i> Categories</a></li>
+		<li><a href="{{ url_for('get_records')}}">XR online resource</a></li>
+		<br>
+		<li><a href="{{ url_for('get_records') }}"><i class="material-icons left">home</i> Home</a></li>
+		<li><a href="{{ url_for('add_record') }}"><i class="material-icons left">add</i> Add new link</a></li>
+		<li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">folder</i> Categories</a></li>
 		{% if "username" in session %}
-		<li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">cloud</i> Log out</a></li>
+		<li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">close</i> Log out</a></li>
 		{% else %}
-		<li><a href="{{ url_for('user_login') }}"><i class="material-icons left">cloud</i> Log in</a></li>
+		<li><a href="{{ url_for('user_login') }}"><i class="material-icons left">check</i> Log in</a></li>
 		{%endif%}
+
+        <br>
+        <br>
+        <li><a class="subheader">What is it?</a></li>
+		    <li>
+			    <div class="user-view">
+			        <span class="white-text name">Simple resource allowing you to gather and browse references to articles, news and other materials online.
+                    Read more about this project on <a href="https://github.com/Ardhanari/xr-online-resource-5.10-backup-" target="_blank">GitHub</a></span></li>
+				</div>
 	</ul>
 
 	<!-- content -->
