@@ -1,5 +1,5 @@
-{% block content %}
+{% block vote %}
 
-thumb up! {{ record.votes }}
+<a href="{{url_for('removevote_now', record_id=record._id)}}" class="yes"><i class="material-icons">thumb_up</i> {{ record.votes }}</a>
 
 {% endblock %}

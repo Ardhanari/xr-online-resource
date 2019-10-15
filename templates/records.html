@@ -29,9 +29,6 @@
         </div>
         <!-- vote section -->
         <div class="vote_count col s4">
-            {% if "username" in session %}
-            <a href="{{url_for('upvote_now', record_id=record._id)}}" class="yes"><i class="material-icons">thumb_up</i></a>
-            {% endif %}
 
             Upvoted <span class="vote_count">{{ record.votes }}</span> times
 
