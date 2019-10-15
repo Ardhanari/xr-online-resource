@@ -2,7 +2,7 @@
 
 {% block breadcrumbs %}
 
-<a href ="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('show_categories') }}">Categories</a> > <a href="{{ url_for('show_categories') }}">{{ category.category_name }}</a>
+<a href ="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('show_categories') }}">Categories</a> > <a href="{{url_for('single_category', category_name=category.category_name)}}">{{ category.category_name }}</a>
 
 {% endblock %}
 
