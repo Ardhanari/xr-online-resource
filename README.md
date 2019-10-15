@@ -1,27 +1,29 @@
 
-## Contents
+## Table of content
 
 ### 1. [Project Design](#Project-Design)
-
 -   [Design](#Design)
--   [Developers Objects](#Developers-Objects)
--   [User Stories](#User-Stories)
--   [Wireframes](#Original-wireframe-concepts)
--   [Deployment](#Deployment)
--   [Testing](#Testing)
+-   [Colours](#Colours)
+-   [Fonts](#Fonts)
+-   [User objectives](#User-objectives)
+-   [Developer objectives](#Developer-objectives)
 
-### 2. Features
--   [Site Features](#Site-Features)
--   [Future Plans](#Future-plans)
+### 2. [Features](#Features)
+-   [Existing features](#Existing-features)
+-   [Features left to implement](#Features-left-to-implement)
 
-### 3. [Technologies Used](#Technologies-Used)
+### 3. [Information architecture](#Information-architecture)
 
-### 4. [Testing](#Testing)
+### 4. [User testing](#User-testing)
 
-### 5. [Acknowledgements](#Acknowledgements)
+### 5. [Technologies Used](#Technologies-Used)
+
+### 6. [Deployment](#Deployment)
+
+### 7. [Acknowledgements](#Acknowledgements)
 
 
-## Project Design
+## Project design
 'Extinction Rebellion - online resource' came to my mind as something very simple and clear to use. The layout from the beginning was supposed to be minimalistic and unobtrusive. Main goal of this website after all is to facilitate access to other sites and doing it efficient, not elaborately.
 
 The objective for me while building this website was to achieve maximum usability in minimalistic look. The site is supposed to be lightweight, toned and serve its main purpose above everything else - provide easy access to resources spread across the internet. Therefore, no pictures and redundant elements are present across the website.
@@ -40,11 +42,11 @@ The design was based loosely on Extinction Rebellion main design programme as we
 
 Colour scheme is clear and straighforward:
 
-#202020 - background
-#000000 - navigation and button backgrounds
-#ffffff - font and icon color
-#00FF66 - link indicator in these instances where links are not styled as buttons
-#F44336 - warning text
+-   #202020 - background
+-   #000000 - navigation and button backgrounds
+-   #ffffff - font and icon color
+-   #00FF66 - link indicator in these instances where links are not styled as buttons
+-   #F44336 - warning text
 
 Limited palette makes sure the focus of the user is directed straight to the information. It is intended to present but not overshadow the content, making sure it stays in the background.
 
@@ -58,7 +60,7 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 -   **[There’s not much reasoning here - one font is brand related, the other is there to make everything easy and readable, no matter the device.]**
 
 
-### User Objectives
+### User objectives
 
 -   The website has been designed for people needing access to various resources spread across the internet. We all probably were in that place before, where we know something (article, document, video) exists, but any attempt to googling brings no relevant results. This small database is intended to make this process easier.
 
@@ -69,16 +71,14 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 -   All users can add links, logged in users can on top of that edit records if they feel like they can improve them or delete these, that are irrelevant.
 
 
-### Developers Objectives
+### Developers objectives
 
 -   User-friendly front-end application, allowing easy and frustration-proof access to the database
-
 -   Adding little brick to the global project such as Extinction Rebellion
-
 -   Portfolio use
 
 
-### User Stories
+### User stories
 
 - User engaging in the online discussion, needing specific links as arguments
 - User searching a resource they remember but cannot find via google
@@ -89,7 +89,7 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 -   To serve its purpose, at least in limited capacity
 
 
-# Features
+## Features
 
 -   Easy access to all records on the main page (read)
 
@@ -105,9 +105,9 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 
 -   Easy way to add new entries - user fills out the form and the link with all it’s information is added to the database instantly (create)
 
-## Existing features
+### Existing features
 
-#### Navbar (on all pages)
+#### Navigation
 
 -   Following links are visible: Home, Add new link, Categories and Log in (or Log out if user is already logged in)
 
@@ -116,10 +116,10 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 -   Desktop users have these on the top of the site in a fixed navigation bar
 
 
-### Breadcrumbs
+##### Breadcrumbs
 - Allow easy navigation between pages without using browser's 'back' and 'forward' buttons
 
-### Pages:
+#### Pages:
 
 ##### Home Page
 
@@ -179,24 +179,24 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 -   Offers one last step before deleting the record from the collection
 
 
-## Features Left To Implement
+### Features left to implement
 
-###  SECURITY???
+####  SECURITY???
 ![enter image description here](https://i.imgur.com/xvW4iAR.png?1)
 - This project is initially released with barely any security at all. What is lacking and will be amended as soon as possible is:
-		- secure password storage
-		- registration available to users and confirmed by email, together with protection from spamming db with fake users data
-		- option to reset/change password by user
+	- secure password storage
+	- registration available to users and confirmed by email, together with protection from spamming db with fake users data
+	- option to reset/change password by user
 
-### Search
+#### Search
 
 -  It's not a proper repository without keyword search. This feature was cut from initial release due to various instances of force majeure during development of this project.
 
-### Voting
+#### Voting
 - This needs to be improved to allow voting only oncer per record per user.
 
 
-# Information Architecture
+## Information Architecture
 
 A MongoDB NoSQL database was used in the creation of this website. Database used to store data consists of 4 collections:
 
@@ -260,155 +260,14 @@ Hidden collection gathering all records deleted from Repo.
 
 Follows the same structure as documents in Repo.
 
-# Technologies Used
-
-### Tools
-
--   AWS [Cloud9](https://aws.amazon.com/cloud9/)
-
--   GitPod
-
--   [Git](https://git-scm.com/)
-
-
--   Version control during the development process.
-
-
--   [GitHub](https://github.com/)
-
-
--   Remote repository.
-
-
--   Figma
-
-
--   Building mockups
-
-
--   [Google Chrome - Dev Tools](https://www.google.com/chrome/)
-
-
--   Testing responsiveness, and manually debugging code.
-
-
--   [PIP](https://pip.pypa.io/en/stable/installing/)
-
-
--   Installing tools needed in this project.
-
-
--   [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-
-
--   Hosts the database for this project
-
-
-### Libraries
-
--   [JQuery](https://jquery.com/)
-
-
--   Simplifies DOM manipulation.
-
-
--   [Materialize](https://materializecss.com/)
-
-
--   Speeds up the development process and creating responsiveness design
-
-
--   [Material Icons](https://material.io/resources/icons/)
-
--   [PyMongo](https://api.mongodb.com/python/current/)
-
-
--   Facilitate communication between Python and MongoDB.
-
-
--   [Flask](https://flask.palletsprojects.com/en/1.0.x/)
-
--   [Jinja](http://jinja.pocoo.org/docs/2.10/)
-
-
-### Programming Languages
-
--   This project uses HTML, CSS, JavaScript and Python.
-
--   The code was validated/formatted using following tools respectively: [W3C HTML Validator](https://validator.w3.org/), [W3C CSS validator](https://jigsaw.w3.org/css-validator/) and [Pythoniter](https://pythoniter.appspot.com/)
-- README.md written with grand help of stackedit.io
-
-
-### Deployment
-
--   This project was developed using the AWS Cloud9 and GitPod.
-
--   This project was regularly pushed to its GitHub repository [https://github.com/Ardhanari/xr-online-resource-5.10-backup-](https://github.com/Ardhanari/xr-online-resource-5.10-backup-), full list of commits is available at [https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commits/master](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commits/master)
-
--   The project was deployed on [Heroku](http://xr-online-resource.herokuapp.com/)
-
-
-## Local deployment
-
-You need Python3, pip, Git and MongoDB to run this project locally.
-
-### Instructions
-
-1.  Go to [this page](https://github.com/Ardhanari/xr-online-resource-5.10-backup-) and click on ‘Clone or download’ button
-
-2.  Copy the URL from ‘Clone with HTTPS’ tab
-
-3.  Open your terminal/bash
-
-4.  While being in the location you want the cloned directory to be saved, type git clone and paste the URL that you copied, accept with Enter
-
-5.  Create virtual environment with environment variables (IP, PORT, MONGO_URI, SECRET_KEY)
-    OR
-Define these variables in app.py as follows:
-'IP', '0.0.0.0'
-'PORT', '8000'
-'SECRET_KEY', your string of choice
-'MONGO_URI', mongo_uri of your database, see [documentation](https://docs.atlas.mongodb.com/driver-connection/)
-
-6.  Install all required modules from requirements.txt using pip3 install -r requirements.txt in your terminal
-
-7.  Now the project is ready to be run locally
-
-
-## Heroku deployment
-
-1.  Install heroku using pip.
-
-2.  Log in to your account typing heroku login in the terminal and following the steps.
-
-3.  requirements.txt and Procfile are necessary files for deployment. To create requirements.txt, use command `pip freeze > requirements.txt` in the terminal
-
-4.  To create Procfile, use: `echo web: python3 app.py > Procfile`
-
-5.  Commit and push existing files to your repository on GitHub
-
-6.  Create new app in [your heroku dashboard](https://dashboard.heroku.com/apps), set its name and region.
-
-7.  On app’s dashboard select Deploy and then choose GitHub (you can also skip pushing your files to github and push them directly to heroku the same way it is done with GitHub)
-
-8.  On the same dashboard set environmental variables by selecting ‘Reveal Config Vars’ in Settings and adding:
-IP - ‘0.0.0.0’
-PORT - ‘8000’
-MONGO_URI - mongo_uri of your database, see [documentation](https://docs.atlas.mongodb.com/driver-connection/)
-SECRET_KEY - key of your choice
-DEBUG - ‘False’
-
-10.  Your site is now succesfully deployed on Heroku.
-
-
-#### User testing
+## User testing
 
 The following tests were performed to test usibility and functionality. At the time of a final testing, all features passed the functionality test as expected.
 
 -   **(describe tests)**
 
 
-## Bugs
+### Bugs
 
 The following bugs were found when performing the initial tests.
 
@@ -423,23 +282,97 @@ The following bugs were found when performing the initial tests.
 [fixed bug where editing record would remove its votes and date](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commit/22a430cfefb0cc097a6d4abf00de894cd382e9df)**
 
 
+## Technologies Used
+### Tools
 
-### Media and Content
+-   AWS [Cloud9](https://aws.amazon.com/cloud9/)
+-   GitPod
+-   [Git](https://git-scm.com/)
+    -   Version control during the development process.
+-   [GitHub](https://github.com/)
+    -   Remote repository.
+-   Figma
+    -   Building mockups
+-   [Google Chrome - Dev Tools](https://www.google.com/chrome/)
+    -   Testing responsiveness, and manually debugging code.
+-   [PIP](https://pip.pypa.io/en/stable/installing/)
+    -   Installing tools needed in this project.
+-   [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+    -   Hosts the database for this project
 
--   All the entries in the database are references created by users. There are no hosted files on site’s server.
 
+### Libraries
+
+-   [JQuery](https://jquery.com/)
+	- Simplifies DOM manipulation.
+-   [Materialize](https://materializecss.com/)
+    -   Speeds up the development process and creating responsiveness design
+-   [Material Icons](https://material.io/resources/icons/)
+-   [PyMongo](https://api.mongodb.com/python/current/)
+    -   Facilitate communication between Python and MongoDB.
+-   [Flask](https://flask.palletsprojects.com/en/1.0.x/)
+-   [Jinja](http://jinja.pocoo.org/docs/2.10/)
+
+
+### Programming languages
+
+-   This project uses HTML, CSS, JavaScript and Python.
+-   The code was validated/formatted using following tools respectively: [W3C HTML Validator](https://validator.w3.org/), [W3C CSS validator](https://jigsaw.w3.org/css-validator/) and [Pythoniter](https://pythoniter.appspot.com/)
+- README.md written with grand help of stackedit.io
+
+
+### Deployment
+
+-   This project was developed using the AWS Cloud9 and GitPod.
+-   This project was regularly pushed to its GitHub repository [https://github.com/Ardhanari/xr-online-resource-5.10-backup-](https://github.com/Ardhanari/xr-online-resource-5.10-backup-), full list of commits is available at [https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commits/master](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commits/master)
+-   The project was deployed on [Heroku](http://xr-online-resource.herokuapp.com/)
+
+
+## Deployment
+### Local deployment
+
+You need Python3, pip, Git and MongoDB to run this project locally.
+
+1.  Go to [this page](https://github.com/Ardhanari/xr-online-resource-5.10-backup-) and click on ‘Clone or download’ button
+2.  Copy the URL from ‘Clone with HTTPS’ tab
+3.  Open your terminal/bash
+4.  While being in the location you want the cloned directory to be saved, type git clone and paste the URL that you copied, accept with Enter
+5.  Create virtual environment with environment variables (IP, PORT, MONGO_URI, SECRET_KEY)
+    OR
+Define these variables in app.py as follows:
+'IP', '0.0.0.0'
+'PORT', '8000'
+'SECRET_KEY', your string of choice
+'MONGO_URI', mongo_uri of your database, see [documentation](https://docs.atlas.mongodb.com/driver-connection/)
+6.  Install all required modules from requirements.txt using pip3 install -r requirements.txt in your terminal
+7.  Now the project is ready to be run locally
+
+### Heroku deployment
+
+1.  Install heroku using pip.
+2.  Log in to your account typing heroku login in the terminal and following the steps.
+3.  requirements.txt and Procfile are necessary files for deployment. To create requirements.txt, use command `pip freeze > requirements.txt` in the terminal
+4.  To create Procfile, use: `echo web: python3 app.py > Procfile`
+5.  Commit and push existing files to your repository on GitHub
+6.  Create new app in [your heroku dashboard](https://dashboard.heroku.com/apps), set its name and region.
+7.  On app’s dashboard select Deploy and then choose GitHub (you can also skip pushing your files to github and push them directly to heroku the same way it is done with GitHub)
+8.  On the same dashboard set environmental variables by selecting ‘Reveal Config Vars’ in Settings and adding:
+IP - ‘0.0.0.0’
+PORT - ‘8000’
+MONGO_URI - mongo_uri of your database, see [documentation](https://docs.atlas.mongodb.com/driver-connection/)
+SECRET_KEY - key of your choice
+DEBUG - ‘False’
+10.  Your site is now succesfully deployed on Heroku.
 
 ### Acknowledgements
 
 -   Many thanks to my CI mentor Seun Owonikoko for help
-
 -   Code Institute Slack community’s both solid help and sense of humour should be praised
-
 -   Code Institute materials were my support not only for learning prior starting this Milestone Project but also as a reference while building it
-
 -   Many thanks to all Extinction Rebellion people for brave fight and standing together as an example for the whole world. Also for:
-
-
 	-   brand guidelines, style and font
-
 	-   bringing purpose to many of us
+
+### Disclaimer
+-   All the entries in the database are references created by users. There are no hosted files on site’s server.
+-   Project built as a Milestone Project 3 for Code Institute
