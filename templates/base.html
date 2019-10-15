@@ -27,7 +27,7 @@
     <!-- navigation bar / large screen -->
     <nav>
         <div class="nav-wrapper">
-            <a href="{{ url_for('get_records')}}" class="brand-logo right hide-on-med-and-down">Extinction Rebellion - online resource</a>
+            <a href="{{ url_for('get_records')}}" class="brand-logo right hide-on-large-only">XR online resource</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="{{ url_for('get_records') }}"><i class="material-icons left">home</i> Home</a></li>
@@ -38,7 +38,6 @@
                 {% else %}
                     <li><a href="{{ url_for('user_login') }}"><i class="material-icons left">check</i> Log in</a></li>
                 {%endif%}
-                <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">search</i> Search</a></li>
             </ul>
         </div>
     </nav>
@@ -52,7 +51,6 @@
             {% else %}
             <li><a href="{{ url_for('user_login') }}"><i class="material-icons left">cloud</i> Log in</a></li>
         {%endif%}
-        <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">search</i> Search</a></li>
     </ul>
 
     <!-- content -->
@@ -61,12 +59,15 @@
         <div class="row">
 
             <!--title-->
-            <div class="col s4">
+            <div class="col l4 xl4 hide-on-med-and-down">
                 <a href="{{ url_for('get_records')}}"><h1 class="center-align">Extinction Rebellion - online resource</h1></a>
+                <div class="col l2 xl2"></div>
+                <div class="col l8 xl8 center-align description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt aliquet laoreet. Ut feugiat, mauris tristique aliquam condimentum, sem ex feugiat mi, id posuere dolor orci nec mi. Duis in nunc efficitur, efficitur est eu, volutpat ante. Vestibulum vel sem condimentum, hendrerit velit eget, egestas eros. Morbi nunc elit, aliquam sit amet mi ut, eleifend lobortis elit. Aenean pulvinar urna eget urna hendrerit, quis accumsan sapien faucibus. Cras ac leo nunc. </div>
+                <div class="col l2 xl2"></div>
             </div>
 
 
-<div class="col s8">
+<div class="col s12 m12 l8 xl8">
             <!-- breadcrumbs -->
 
             <div class="breadcrumbs">{% block breadcrumbs %}{% endblock %}</div>
@@ -79,7 +80,9 @@
                     <li>{{ message }}</li>
                     {% endfor %}
                 </ul>
-                {% endif %} {% endwith %} {% block content %} {% endblock %}
+                {% endif %} {% endwith %}
+
+                <div class="records">{% block content %} {% endblock %}</div>
             </div>
         </div>
     </div>

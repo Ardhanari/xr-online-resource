@@ -114,7 +114,7 @@ def user_login():
         flash('You were just logged in')
     # if user is already logged in, they are redirected to main page
     if "username" in session:
-        return redirect(url_for('get_records')) # ????????????????????????? think what to do with it
+        return redirect(url_for('get_records'))
     return render_template("login.html")
 
 @app.route('/logout')
@@ -134,17 +134,6 @@ def upvote_now(record_id):
     )
     return render_template("thumb_up.html", record=mongo.db.repo.find_one({'_id': ObjectId(record_id)}))
 
-# downvoting will probably be removed
-# #... and downvote
-# @app.route('/downvote/<record_id>')
-# def downvote_now(record_id):
-#     mongo.db.repo.find_one_and_update(
-#         {'_id': ObjectId(record_id)},
-#         {'$inc': {'votes': -1}}
-#     )
-#     return render_template("thumb_up.html", record=mongo.db.repo.find_one({'_id': ObjectId(record_id)}))
-
-
 
 # sorting by...
 # ...date added
@@ -159,9 +148,8 @@ def sorting_by_date_oldest():
     # records=mongo.db.repo.find()
     oldest_records=mongo.db.repo.find().sort("date_added", 1) # oldest first
     return render_template("records.html", records=oldest_records)
-    # return render_template("records.html", records=mongo.db.repo.find().sort("date_added", -1)) # sorts from newest records to oldest
 
-# ...votes
+# ...and votes
 @app.route('/top')
 def sorting_by_votes():
     top_voted=mongo.db.repo.find().sort("votes", -1) # top voted first
