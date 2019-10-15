@@ -2,95 +2,108 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Materialize: Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!-- Materialize: Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- Materialize icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+	<!-- Materialize: Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<!-- Materialize: Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<!-- Materialize icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
 
-    <title>Extinction Rebellion - {% block title %}{% endblock %}</title>
+	<title>Extinction Rebellion - {% block title %}{% endblock %}</title>
 
-    <!-- favicon -->
+	<!-- favicon -->
 </head>
 
 <body>
+	<!-- navigation bar / large screen -->
+	<div class="navbar-fixed">
+		<nav>
+			<div class="nav-wrapper">
+				<a href="{{ url_for('get_records')}}" class="brand-logo right hide-on-large-only">XR online resource</a>
+				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+				<ul id="nav-mobile" class="left hide-on-med-and-down">
+					<li><a href="{{ url_for('get_records') }}"><i class="material-icons left">home</i> Home</a></li>
+					<li><a href="{{ url_for('add_record') }}"><i class="material-icons left">add</i> Add new link</a>
+					</li>
+					<li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">folder</i>
+							Categories</a>
+					</li>
+					{% if "username" in session %}
+					<li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">close</i> Log out</a></li>
+					{% else %}
+					<li><a href="{{ url_for('user_login') }}"><i class="material-icons left">check</i> Log in</a></li>
+					{%endif%}
+				</ul>
+			</div>
+		</nav>
+	</div>
 
-    <!-- navigation bar / large screen -->
-    <nav>
-        <div class="nav-wrapper">
-            <a href="{{ url_for('get_records')}}" class="brand-logo right hide-on-large-only">XR online resource</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="{{ url_for('get_records') }}"><i class="material-icons left">home</i> Home</a></li>
-                <li><a href="{{ url_for('add_record') }}"><i class="material-icons left">add</i> Add new link</a></li>
-                <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">folder</i> Categories</a></li>
-                {% if "username" in session %}
-                    <li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">close</i> Log out</a></li>
-                {% else %}
-                    <li><a href="{{ url_for('user_login') }}"><i class="material-icons left">check</i> Log in</a></li>
-                {%endif%}
-            </ul>
-        </div>
-    </nav>
-    <!-- navigation / mobile -->
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('get_records') }}"><i class="material-icons left">cloud</i> Home</a></li>
-        <li><a href="{{ url_for('add_record') }}"><i class="material-icons left">cloud</i> Add new link</a></li>
-        <li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">cloud</i> Categories</a></li>
-        {% if "username" in session %}
-            <li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">cloud</i> Log out</a></li>
-            {% else %}
-            <li><a href="{{ url_for('user_login') }}"><i class="material-icons left">cloud</i> Log in</a></li>
-        {%endif%}
-    </ul>
+	<!-- navigation / mobile -->
+	<ul class="sidenav" id="mobile-demo">
+		<li><a href="{{ url_for('get_records') }}"><i class="material-icons left">cloud</i> Home</a></li>
+		<li><a href="{{ url_for('add_record') }}"><i class="material-icons left">cloud</i> Add new link</a></li>
+		<li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">cloud</i> Categories</a></li>
+		{% if "username" in session %}
+		<li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">cloud</i> Log out</a></li>
+		{% else %}
+		<li><a href="{{ url_for('user_login') }}"><i class="material-icons left">cloud</i> Log in</a></li>
+		{%endif%}
+	</ul>
 
-    <!-- content -->
+	<!-- content -->
 
-    <div class="content">
-        <div class="row">
+	<div class="content">
+		<div class="row">
 
-            <!--title-->
-            <div class="col l4 xl4 hide-on-med-and-down">
-                <a href="{{ url_for('get_records')}}"><h1 class="center-align">Extinction Rebellion - online resource</h1></a>
-                <div class="col l2 xl2"></div>
-                <div class="col l8 xl8 center-align description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt aliquet laoreet. Ut feugiat, mauris tristique aliquam condimentum, sem ex feugiat mi, id posuere dolor orci nec mi. Duis in nunc efficitur, efficitur est eu, volutpat ante. Vestibulum vel sem condimentum, hendrerit velit eget, egestas eros. Morbi nunc elit, aliquam sit amet mi ut, eleifend lobortis elit. Aenean pulvinar urna eget urna hendrerit, quis accumsan sapien faucibus. Cras ac leo nunc. </div>
-                <div class="col l2 xl2"></div>
-            </div>
+			<!--title-->
+			<div class="col l4 xl4 hide-on-med-and-down">
+				<div class="content-title" <a href="{{ url_for('get_records')}}">
+					<h1 class="center-align">Extinction Rebellion - online resource</h1></a>
+					<div class="col l2 xl2"></div>
+					<div class="col l8 xl8 center-align description">Lorem ipsum dolor sit amet, consectetur adipiscing
+						elit. Aliquam tincidunt aliquet laoreet. Ut feugiat, mauris tristique aliquam condimentum, sem
+						ex feugiat mi, id posuere dolor orci nec mi. Duis in nunc efficitur, efficitur est eu, volutpat
+						ante. Vestibulum vel sem condimentum, hendrerit velit eget, egestas eros. Morbi nunc elit,
+						aliquam sit amet mi ut, eleifend lobortis elit. Aenean pulvinar urna eget urna hendrerit, quis
+						accumsan sapien faucibus. Cras ac leo nunc. </div>
+					<div class="col l2 xl2"></div>
+				</div>
+			</div>
 
 
-<div class="col s12 m12 l8 xl8">
-            <!-- breadcrumbs -->
+			<div class="col s12 m12 l8 xl8">
+				<!-- breadcrumbs -->
 
-            <div class="breadcrumbs">{% block breadcrumbs %}{% endblock %}</div>
-            <!--main content -->
+				<div class="breadcrumbs">{% block breadcrumbs %}{% endblock %}</div>
+				<!--main content -->
 
 
-                {% with messages = get_flashed_messages() %} {% if messages %}
-                <ul class=flashes>
-                    {% for message in messages %}
-                    <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %} {% endwith %}
+				{% with messages = get_flashed_messages() %} {% if messages %}
+				<ul class=flashes>
+					{% for message in messages %}
+					<li>{{ message }}</li>
+					{% endfor %}
+				</ul>
+				{% endif %} {% endwith %}
 
-                <div class="records">{% block content %} {% endblock %}</div>
-            </div>
-        </div>
-    </div>
+				<div class="records">{% block content %} {% endblock %}</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 <!-- materiaize initialization -->
 <script type="text/javascript">
-    $(document).ready(function() {
+	$(document).ready(function() {
         $('.sidenav').sidenav();
         $('select').formSelect();
         $('.dropdown-trigger').dropdown();
@@ -99,7 +112,7 @@
 
 <!-- ajax voting -->
 <script>
- $('.yes').bind('click', function(e){
+	$('.yes').bind('click', function(e){
      e.preventDefault();
      var url = $(this).attr('href');
      $('.yes').load(url);
