@@ -55,9 +55,9 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 
 ### Fonts
 
--   The resource uses two fonts across all pages - Fuxced Caps, which is offcial Extinction Rebellion font and default browser font. **[rethink that, in case someone comes with comic sans set or something]**
+-   The resource uses two fonts across all pages - Fuxced Caps, which is offcial Extinction Rebellion font and simple sans-serif font.
 
--   **[There’s not much reasoning here - one font is brand related, the other is there to make everything easy and readable, no matter the device.]**
+-   The reasoning behind it was simple - one is brand font specified by XR brand guide and is used for titles and headings, the other is there just to make sure the rest of the website displays properly.
 
 
 ### User objectives
@@ -182,7 +182,7 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 ### Features left to implement
 
 ####  SECURITY???
-![enter image description here](https://i.imgur.com/xvW4iAR.png?1)
+![](https://i.imgur.com/xvW4iAR.png?1)
 - This project is initially released with barely any security at all. What is lacking and will be amended as soon as possible is:
 	- secure password storage
 	- registration available to users and confirmed by email, together with protection from spamming db with fake users data
@@ -267,50 +267,44 @@ The following tests were performed to test usibility and functionality. At the t
 -   **(describe tests)**
 
 
-### Bugs
+### Bugs found during development and initial testing
 
 The following bugs were found when performing the initial tests.
 
-**-   when using 'back' and 'forward' buttons in the browser sometimes record_id is lost and some of the URLs are broken, example: http://87358e4a801041238b9780cc91488cab.vfs.cloud9.us-east-1.amazonaws.com/record/ gives error 404
-
--   one way to solve - creating custom 404 page
-
--   other way to solve - catch errors like that and prevent them
-
--   during development - voting option calls for ajax upgrade, otherwise always points to homepage, even when voted from single record or category page
-
-[fixed bug where editing record would remove its votes and date](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commit/22a430cfefb0cc097a6d4abf00de894cd382e9df)**
-
+- using 'back' and 'forward' buttons in the browser sometimes causes record_id to be lost and makes URL broken.
+    - one way to solve is to create custom 404 page,
+    - the other way: to catch these errors and prevent them
+- editing record would remove its date and number of votes (fixed in one of the [commits](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commit/22a430cfefb0cc097a6d4abf00de894cd382e9df))
 
 ## Technologies Used
 ### Tools
 
 -   AWS [Cloud9](https://aws.amazon.com/cloud9/)
--   GitPod
+-   [GitPod](https://gitpod.io)
 -   [Git](https://git-scm.com/)
     -   Version control during the development process.
 -   [GitHub](https://github.com/)
     -   Remote repository.
--   Figma
+-   [Figma](https://www.figma.com/)
     -   Building mockups
 -   [Google Chrome - Dev Tools](https://www.google.com/chrome/)
     -   Testing responsiveness, and manually debugging code.
 -   [PIP](https://pip.pypa.io/en/stable/installing/)
     -   Installing tools needed in this project.
 -   [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-    -   Hosts the database for this project
+    -   Hosting database used for this project
 
 
 ### Libraries
 
 -   [JQuery](https://jquery.com/)
-	- Simplifies DOM manipulation.
+	-   Simplifies DOM manipulation.
 -   [Materialize](https://materializecss.com/)
     -   Speeds up the development process and creating responsiveness design
 -   [Material Icons](https://material.io/resources/icons/)
 -   [PyMongo](https://api.mongodb.com/python/current/)
-    -   Facilitate communication between Python and MongoDB.
--   [Flask](https://flask.palletsprojects.com/en/1.0.x/)
+    -   Facilitates communication between Python and MongoDB.
+-   [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 -   [Jinja](http://jinja.pocoo.org/docs/2.10/)
 
 
@@ -318,7 +312,7 @@ The following bugs were found when performing the initial tests.
 
 -   This project uses HTML, CSS, JavaScript and Python.
 -   The code was validated/formatted using following tools respectively: [W3C HTML Validator](https://validator.w3.org/), [W3C CSS validator](https://jigsaw.w3.org/css-validator/) and [Pythoniter](https://pythoniter.appspot.com/)
-- README.md written with grand help of stackedit.io
+-   README.md written with grand help of [stackedit.io](http://stackedit.io)
 
 
 ### Deployment
