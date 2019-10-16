@@ -30,8 +30,8 @@
 
 {% if "username" in session %}
 
-<p>
-	<a href="{{url_for('upvote_now', record_id=record._id)}}" class="yes">Votes: {{ record.votes }}
+<p  class="yes">
+	<a href="{{url_for('upvote_now', record_id=record._id)}}">Votes: {{ record.votes }}
 		<i class="material-icons white-text">thumb_up</i></a>
 
 </p>

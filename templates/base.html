@@ -125,19 +125,13 @@
 
 <!-- ajax voting -->
 <script>
-	$('.yes').bind('click', function(e){
+	$('.yes > a').bind('click', function(e){
      e.preventDefault();
      var url = $(this).attr('href');
      $('.yes').load(url);
 
   });
 
-  $('.no').bind('click', function(e){
-     e.preventDefault();
-     var url = $(this).attr('href');
-     $('.no').load(url);
-
-  });
 </script>
 
 </html>

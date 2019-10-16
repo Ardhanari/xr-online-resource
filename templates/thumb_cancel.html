@@ -1,5 +1,8 @@
+{% extends 'single-record.html' %}
+
 {% block vote %}
 
-<a href="{{url_for('upvote_now', record_id=record._id)}}" class="yes"><i class="material-icons">thumb_up</i> {{ record.votes }}</a>
+<a href="{{url_for('upvote_now', record_id=record._id)}}" class="yes">Votes: {{ record.votes }}
+		<i class="material-icons black-text">thumb_up</i></a>
 
 {% endblock %}
