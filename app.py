@@ -170,10 +170,14 @@ def sorting_by_votes():
     top_voted=mongo.db.repo.find().sort("votes", -1) # top voted first
     return render_template("records.html", records=top_voted)
 
+# if __name__ == '__main__':
+#     app.run(host=os.getenv("IP"),
+#             port=int(os.getenv("PORT")),
+#             debug=True)
+
 if __name__ == '__main__':
-    app.run(host=os.getenv("IP"),
-            port=int(os.getenv("PORT")),
-            debug=True)
+    port = int(os.getenv('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
 
 # if __name__ == '__main__':
 #     app.run(host='0.0.0.0',
