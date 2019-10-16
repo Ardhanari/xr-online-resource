@@ -2,7 +2,10 @@
 
 {% block breadcrumbs %}
 
-<a href ="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('show_categories') }}">Categories</a> > <a href="{{url_for('single_category', category_name=record.category)}}">{{ record.category }}</a> > <a href="{{ url_for('display_record', record_id=record._id) }}">{{ record.title }}</a> > <a href="{{ url_for('edit_record', record_id=record._id) }}">Edit {{ record.title }}</a>
+<a href="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('show_categories') }}">Categories</a> > <a
+	href="{{url_for('single_category', category_name=record.category)}}">{{ record.category }}</a> > <a
+	href="{{ url_for('display_record', record_id=record._id) }}">{{ record.title }}</a> > <a
+	href="{{ url_for('edit_record', record_id=record._id) }}">Edit {{ record.title }}</a>
 
 {% endblock %}
 
@@ -11,64 +14,57 @@
 
 <h3>Update link </h3>
 
-            <input id="title" name="title" type="text" class="validate" value="{{ record.title }}" required>
-            <label for="title">Title</label>
-        </div>
-    <!-- Link -->
-    <div class="row">
-        <div class="input-field col s12">
-            <input id="url" name="url" type="url" class="validate" value="{{ record.url }}" required>
-            <label for="url">URL</label>
-        </div>
-    </div>
+<form action="{{ url_for('update_record', record_id=record._id) }}" method="POST" class="col s12 m12 l6 xl6">
+	<!-- Title of the record -->
+	<div class="row">
+		<div class="input-field col s12">
+			<input id="title" name="title" type="text" class="validate" value="{{ record.title }}" required>
+			<label for="title">Title</label>
+		</div>
+	</div>
 
-    <!-- Description of the link -->
+	<!-- Link -->
+	<div class="row">
+		<div class="input-field col s12">
+			<input id="url" name="url" type="url" class="validate" value="{{ record.url }}" required>
+			<label for="url">URL</label>
+			<span class="helper-text" data-error="Please provide correct URL starting with http:// or https://" data-success="Correct!"></span>
+		</div>
+	</div>
 
+	<!-- Description of the link -->
+	<div class="row">
+		<div class="input-field col s12">
+			<i class="material-icons prefix">mode_edit</i>
+			<textarea id="desc" name="desc" class="materialize-textarea">{{ record.desc }}</textarea>
+			<label for="desc">Description of the link</label>
+		</div>
+	</div>
 
-    <div class="row">
-        <div class="input-field col s12">
-            <i class="material-icons prefix">mode_edit</i>
-            <textarea id="desc" name="desc" class="materialize-textarea">{{ record.desc }}</textarea>
-            <label for="desc">Description of the link</label>
-        </div>
-    </div>
+	<!-- Category selection -->
+	<div class="row">
+		<div class="input-field col s12">
+			<select id="category" name="category" required>
+            <option value="" disabled>Choose category:</option>
 
+            {% for category in categories %}
+                {% if category.category_name == record.category %}
+                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                {% else %}
+                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                {% endif %}
+            {% endfor %}
+            </select>
+			<label for="category">Choose category:</label>
+		</div>
+	</div>
 
-
-    <!-- Category selection -->
-    <div class="row">
-    <div class="input-field col s12">
-        <select id="category" name="category" required>
-        <option value="" disabled>Choose category:</option>
-
-        {% for category in categories %}
-            {% if category.category_name == record.category %}
-            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
-            {% else %}
-            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-            {% endif %}
-        {% endfor %}
-
-      </optgroup>
-    </select>
-        <label for="category">Choose category:</label>
-    </div></div>
-
-    <!-- Two hidden fields to make it easy for keeping votes and date_added values
-    <div class="row">
-        <div class="input-field col s12">
-            <input id="date" name="date" type="text" class="hidden" value="{{ record.date_added }}" required>
-        </div>
-        <div class="input-field col s12">
-            <input id="votes" name="votes" type="number" class="hidden" value="{{ record.votes }}" required>
-        </div>
-    </div> -->
-
-    <div class="row">
-    <button class="btn waves-effect waves-light" type="submit" name="action">Update information
+	<div class="row">
+		<!-- Submit the form -->
+		<button class="btn waves-effect waves-light" type="submit" name="action">Update information
         <i class="material-icons right">send</i>
     </button>
-    </div>
+	</div>
 
 </form>
 
