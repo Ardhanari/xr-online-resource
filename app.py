@@ -152,7 +152,6 @@ def removevote_now(record_id):
 
 # sorting by...
 # ...date added
-
 @app.route('/newest')
 def sorting_by_date_newest():
     newest_records=mongo.db.repo.find().sort("date_added", -1) # newest first
@@ -170,16 +169,7 @@ def sorting_by_votes():
     top_voted=mongo.db.repo.find().sort("votes", -1) # top voted first
     return render_template("records.html", records=top_voted)
 
-# if __name__ == '__main__':
-#     app.run(host=os.getenv("IP"),
-#             port=int(os.getenv("PORT")),
-#             debug=True)
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0',
-#             port='8000',
-#             debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True),
