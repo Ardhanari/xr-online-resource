@@ -68,9 +68,9 @@ div.content {
 }
 
 .breadcrumbs {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
 }
 
 .breadcrumbs:empty {
@@ -175,5 +175,11 @@ input, textarea, select,
 @media only screen and (min-width: 992px) {
     .records {
         padding: 10px 50px 0px 50px;
+    }
+
+    .breadcrumbs {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding-left: 50px;
     }
 }
