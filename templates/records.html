@@ -2,7 +2,6 @@
 {% block title %}All records{% endblock %}
 
 {% block content %}
-
 <!-- Dropdown Trigger -->
 <div class="sortoption">
 	<a class='dropdown-trigger btn' href='#' data-target='sort-records-by'>Sort by
@@ -15,7 +14,6 @@
 	<li><a href="/top">Top upvoted</a></li>
 </ul>
 
-
 <!-- display records -->
 {% for record in records %}
 <div class="record">
@@ -27,18 +25,18 @@
 		<i class="material-icons new_tab">open_in_new</i></p>
 
 	<div class="row">
+        <!-- link to detail page -->
 		<div class="col s4"><a href="{{url_for('display_record', record_id=record._id)}}">Details >></div>
 		<div class="col s4">
+            <!-- div to align details and votes correctly. It's empty but important :)-->
 		</div>
 		<!-- vote section -->
 		<div class="vote_count col s4">
-
 			Upvoted <span class="vote_count">{{ record.votes }}</span> times
-
 		</div>
 	</div>
 	<div class="row">
 		<div class="divider"></div>
 	</div>
-	{% endfor %}
-	{% endblock %}
+{% endfor %}
+{% endblock %}
