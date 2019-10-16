@@ -11,10 +11,6 @@
 
 <h3>Update link </h3>
 
-<form action="{{ url_for('update_record', record_id=record._id) }}" method="POST" class="col s6">
-    <!-- Title of the record -->
-    <div class="row">
-        <div class="input-field col s12">
             <input id="title" name="title" type="text" class="validate" value="{{ record.title }}" required>
             <label for="title">Title</label>
         </div>
