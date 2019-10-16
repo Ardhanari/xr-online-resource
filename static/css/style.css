@@ -20,6 +20,16 @@ h4,
     color: #ffffff;
 }
 
+/* side nav site description - title... */
+h5 {
+    font-family: Fucxed, sans-serif;
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    padding-left: 16px;
+}
+
 body {
     background-color: #202020;
     color: #fff;
@@ -45,6 +55,7 @@ a {
 /* side navigation for mobile (overwrites materialize) */
 .sidenav {
     background-color: #000000;
+    padding-top: 15px;
 }
 
 .sidenav li>a,

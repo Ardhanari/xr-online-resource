@@ -49,7 +49,7 @@
 
 	<!-- navigation / mobile -->
 	<ul class="sidenav" id="mobile-demo">
-		<li><a href="{{ url_for('get_records')}}">XR online resource</a></li>
+		<li><a href="#" data-target="mobile-demo" class="sidenav-close"><i class="material-icons right">arrow_back</i></a></li>
 		<br>
 		<li><a href="{{ url_for('get_records') }}"><i class="material-icons left">home</i> Home</a></li>
 		<li><a href="{{ url_for('add_record') }}"><i class="material-icons left">add</i> Add new link</a></li>
@@ -62,7 +62,7 @@
 
 		<br>
 		<br>
-		<li><a class="subheader">What is it?</a></li>
+		<li><h5>What is it?</h5></li>
 		<li>
 			<div class="user-view">
 				<span class="white-text name">Simple resource allowing you to gather and browse references to articles, news and other materials online.
@@ -82,12 +82,8 @@
 						<h1 class="center-align">Extinction Rebellion - online resource</h1>
 					</a>
 					<div class="col l2 xl2"></div>
-					<div class="col l8 xl8 center-align description">Lorem ipsum dolor sit amet, consectetur adipiscing
-						elit. Aliquam tincidunt aliquet laoreet. Ut feugiat, mauris tristique aliquam condimentum, sem
-						ex feugiat mi, id posuere dolor orci nec mi. Duis in nunc efficitur, efficitur est eu, volutpat
-						ante. Vestibulum vel sem condimentum, hendrerit velit eget, egestas eros. Morbi nunc elit,
-						aliquam sit amet mi ut, eleifend lobortis elit. Aenean pulvinar urna eget urna hendrerit, quis
-						accumsan sapien faucibus. Cras ac leo nunc. </div>
+					<div class="col l8 xl8 center-align description">Simple resource allowing you to gather and browse references to articles, news and other materials online.
+                    Read more about this project on <a href="https://github.com/Ardhanari/xr-online-resource-5.10-backup-" target="_blank">GitHub</a> </div>
 					<div class="col l2 xl2"></div>
 				</div>
 			</div>
@@ -124,6 +120,7 @@
         $('select').formSelect();
         $('.dropdown-trigger').dropdown();
     });
+
 </script>
 
 <!-- ajax voting -->
