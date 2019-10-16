@@ -4,6 +4,10 @@
     src: url('/static/fonts/FUCXEDCAPSLatin-Regular.woff2') format("woff2"), url('/static/fonts/FUCXEDCAPSLatin-Regular.woff') format("woff")
 }
 
+html, body {
+    font-family: sans-serif;
+}
+
 h1,
 h2,
 h3,
