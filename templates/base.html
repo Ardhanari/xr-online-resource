@@ -130,6 +130,12 @@
         $('select').formSelect();
         $('.dropdown-trigger').dropdown();
     });
+
+    $(document).ready(function(){
+        if ($(".records-found").html().length > 5) {
+            $('.no-records-found').hide();
+        }
+    });
 </script>
 
 <!-- ajax voting -->

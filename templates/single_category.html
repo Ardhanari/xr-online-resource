@@ -12,8 +12,6 @@
 <!-- Title of the record -->
 <h3>{{ category.category_name }}</h3>
 
-
-
 <!-- display records -->
 <div class="records-found">
 	{% for record in records %}
@@ -31,16 +29,14 @@
 			<div class="col s4"></div>
 			<!-- vote section -->
 			<div class="vote_count col s4">
-
 				Upvoted <span class="vote_count">{{ record.votes }}</span> times
-
 			</div>
 		</div>
 		<div class="row">
 			<div class="divider"></div>
 		</div>
-		{% endfor %}
 	</div>
+    {% endfor %}
 </div>
 <div class="no-records-found">
 	No records found! <br>

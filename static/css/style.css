@@ -92,20 +92,6 @@ div.content {
     padding: 10px;
 }
 
-/* if no records found, display info */
-
-.no-records-found {
-    margin: 50px;
-}
-
-.records-found + .no-records-found {
-    display: none;
-}
-
-.records-found:empty + .no-records-found {
-    display: block;
-}
-
 /* styles for voting elements */
 .vote_count {
     text-align: right;
@@ -181,5 +167,9 @@ input, textarea, select,
         margin-top: 30px;
         margin-bottom: 30px;
         padding-left: 50px;
+    }
+
+    .no-records-found {
+        margin: 50px;
     }
 }
