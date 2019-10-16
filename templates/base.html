@@ -20,7 +20,9 @@
 
 	<title>Extinction Rebellion - {% block title %}{% endblock %}</title>
 
-	<!-- favicon -->
+	<!-- favicons -->
+	<link rel="icon" href="{{ url_for('static', filename='icons/favicon32.png') }}" sizes="32x32" />
+	<link rel="icon" href="{{ url_for('static', filename='icons/favicon192.png') }}" sizes="192x192" />
 </head>
 
 <body>
@@ -49,7 +51,9 @@
 
 	<!-- navigation / mobile -->
 	<ul class="sidenav" id="mobile-demo">
-		<li><a href="#" data-target="mobile-demo" class="sidenav-close"><i class="material-icons right">arrow_back</i></a></li>
+		<li><a href="#" data-target="mobile-demo"
+				class="sidenav-close"><i class="material-icons right">arrow_back</i></a></li>
+		<!-- Closes navbar when clicked -->
 		<br>
 		<li><a href="{{ url_for('get_records') }}"><i class="material-icons left">home</i> Home</a></li>
 		<li><a href="{{ url_for('add_record') }}"><i class="material-icons left">add</i> Add new link</a></li>
@@ -62,7 +66,9 @@
 
 		<br>
 		<br>
-		<li><h5>What is it?</h5></li>
+		<li>
+			<h5>What is it?</h5>
+		</li>
 		<li>
 			<div class="user-view">
 				<span class="white-text name">Simple resource allowing you to gather and browse references to articles, news and other materials online.
@@ -78,12 +84,16 @@
 
 			<!--title-->
 			<div class="col l4 xl4 hide-on-med-and-down">
-				<div class="content-title"> <a href="{{ url_for('get_records')}}">
+				<div class="content-title">
+					<a href="{{ url_for('get_records')}}">
 						<h1 class="center-align">Extinction Rebellion - online resource</h1>
 					</a>
 					<div class="col l2 xl2"></div>
-					<div class="col l8 xl8 center-align description">Simple resource allowing you to gather and browse references to articles, news and other materials online.
-                    Read more about this project on <a href="https://github.com/Ardhanari/xr-online-resource-5.10-backup-" target="_blank">GitHub</a> </div>
+					<div class="col l8 xl8 center-align description">Simple resource allowing you to gather and browse
+						references to articles, news and other materials online.
+						Read more about this project on <a
+							href="https://github.com/Ardhanari/xr-online-resource-5.10-backup-"
+							target="_blank">GitHub</a> </div>
 					<div class="col l2 xl2"></div>
 				</div>
 			</div>
@@ -91,10 +101,7 @@
 
 			<div class="col s12 m12 l8 xl8">
 				<!-- breadcrumbs -->
-
 				<div class="breadcrumbs">{% block breadcrumbs %}{% endblock %}</div>
-				<!--main content -->
-
 
 				<!-- Flashed messages, if any -->
 				{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
@@ -107,6 +114,7 @@
 				</ul>
 				{% endif %} {% endwith %}
 
+				<!--main content -->
 				<div class="records">{% block content %} {% endblock %}</div>
 			</div>
 		</div>
@@ -120,7 +128,6 @@
         $('select').formSelect();
         $('.dropdown-trigger').dropdown();
     });
-
 </script>
 
 <!-- ajax voting -->
@@ -131,7 +138,6 @@
      $('.yes').load(url);
 
   });
-
 </script>
 
 </html>
