@@ -1,8 +1,11 @@
+/* defines font used further down the stylesheet */
 @font-face {
     font-family: Fucxed;
     font-display: swap;
     src: url('/static/fonts/FUCXEDCAPSLatin-Regular.woff2') format("woff2"), url('/static/fonts/FUCXEDCAPSLatin-Regular.woff') format("woff")
 }
+
+/* styles for main elements */
 
 html, body {
     font-family: sans-serif;
@@ -30,6 +33,7 @@ a {
     color: #00ff66;
 }
 
+/* buttons styles (overwrites materialize) */
 .btn {
     background-color: #000000;
 }
@@ -38,6 +42,7 @@ a {
     background-color: gray;
 }
 
+/* side navigation for mobile (overwrites materialize) */
 .sidenav {
     background-color: #000000;
 }
@@ -75,6 +80,7 @@ div.content {
     padding: 10px 50px 0px 50px;
 }
 
+/* styles for voting elements */
 .vote_count {
     text-align: right;
 }
@@ -92,13 +98,14 @@ a.vote_count {
 .yes, a.yes {
     color: #00FF66;
 }
+/* end of voting elements  */
 
 .dropdown-trigger {
     display: inline;
 }
 
 .new_tab {
-    font-size: 16px;
+    font-size: 16px; /* size of material icon */
 }
 
 input, textarea, select,
