@@ -89,7 +89,7 @@ div.content {
 }
 
 .records {
-    padding: 10px 50px 0px 50px;
+    padding: 10px;
 }
 
 /* if no records found, display info */
@@ -171,4 +171,9 @@ input, textarea, select,
     width: 300px;
     color: #000000;
     background-color: #00FF66;
+}
+@media only screen and (min-width: 992px) {
+    .records {
+        padding: 10px 50px 0px 50px;
+    }
 }
