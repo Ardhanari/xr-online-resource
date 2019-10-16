@@ -134,6 +134,15 @@ def upvote_now(record_id):
     )
     return render_template("thumb_up.html", record=mongo.db.repo.find_one({'_id': ObjectId(record_id)}))
 
+# ...and removing the upvote
+@app.route('/removevote/<record_id>')
+def removevote_now(record_id):
+    mongo.db.repo.find_one_and_update(
+        {'_id': ObjectId(record_id)},
+        {'$inc': {'votes': -1}}
+    )
+    return render_template("thumb_cancel.html", record=mongo.db.repo.find_one({'_id': ObjectId(record_id)}))
+
 
 # sorting by...
 # ...date added

@@ -26,13 +26,15 @@
 
 
 <!-- Category selection -->
-<p>{{ record.category }}</p>
+<p>Category: <a href="{{url_for('single_category', category_name=record.category)}}">{{ record.category }}</a></p>
 
 {% if "username" in session %}
 
-<a href="{{url_for('upvote_now', record_id=record._id)}}" class="yes">Votes: {{ record.votes }} <i class="material-icons white-text">thumb_up</i></a>
+<p>
+	<a href="{{url_for('upvote_now', record_id=record._id)}}" class="yes">Votes: {{ record.votes }}
+		<i class="material-icons white-text">thumb_up</i></a>
 
-
+</p>
 <p>
 	<!-- Edit record -->
 	<a class="waves-effect waves-light btn" href="{{ url_for('edit_record', record_id=record._id) }}">Edit</a>
