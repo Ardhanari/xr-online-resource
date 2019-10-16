@@ -111,6 +111,8 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 
 -   Easy way to add new entries - user fills out the form and the link with all it’s information is added to the database instantly (create)
 
+**Important** Some options are only available for logged in users. To access them use credentials stored in [CREDENTIALS.md](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/blob/master/CREDENTIALS.md)
+
 ### Existing features
 
 #### Navigation
@@ -193,6 +195,7 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 	- secure password storage
 	- registration available to users and confirmed by email, together with protection from spamming db with fake users data
 	- option to reset/change password by user
+    - better cookie storage and session management
 
 #### Search
 
