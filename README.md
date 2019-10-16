@@ -332,12 +332,12 @@ You need Python3, pip, Git and MongoDB to run this project locally.
 3.  Open your terminal/bash
 4.  While being in the location you want the cloned directory to be saved, type git clone and paste the URL that you copied, accept with Enter
 5.  Create virtual environment with environment variables (IP, PORT, MONGO_URI, SECRET_KEY)
-    OR
-Define these variables in app.py as follows:
-'IP', '0.0.0.0'
-'PORT', '8000'
-'SECRET_KEY', your string of choice
-'MONGO_URI', mongo_uri of your database, see [documentation](https://docs.atlas.mongodb.com/driver-connection/)
+    OR:
+    -   Define these variables in app.py as follows:
+    -   'IP', '0.0.0.0'
+    -   'PORT', '8000'
+    -   'SECRET_KEY', your string of choice
+    -   'MONGO_URI', mongo_uri of your database, see [documentation](https://docs.atlas.mongodb.com/driver-connection/)
 6.  Install all required modules from requirements.txt using pip3 install -r requirements.txt in your terminal
 7.  Now the project is ready to be run locally
 
@@ -351,11 +351,11 @@ Define these variables in app.py as follows:
 6.  Create new app in [your heroku dashboard](https://dashboard.heroku.com/apps), set its name and region.
 7.  On app’s dashboard select Deploy and then choose GitHub (you can also skip pushing your files to github and push them directly to heroku the same way it is done with GitHub)
 8.  On the same dashboard set environmental variables by selecting ‘Reveal Config Vars’ in Settings and adding:
-IP - ‘0.0.0.0’
-PORT - ‘8000’
-MONGO_URI - mongo_uri of your database, see [documentation](https://docs.atlas.mongodb.com/driver-connection/)
-SECRET_KEY - key of your choice
-DEBUG - ‘False’
+    -   IP - ‘0.0.0.0’
+    -   PORT - ‘8000’
+    -   MONGO_URI - mongo_uri of your database, see [documentation](https://docs.atlas.mongodb.com/driver-connection/)
+    -   SECRET_KEY - key of your choice
+    -   DEBUG - ‘False’
 10.  Your site is now succesfully deployed on Heroku.
 
 ### Acknowledgements

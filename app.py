@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from flask import Flask, flash, render_template, redirect, request, session, url_for
 # MongoDB for flask
 from flask_pymongo import PyMongo
@@ -7,10 +9,14 @@ from bson.objectid import ObjectId
 # module allowing to retrieve current date and time in UTC format
 from datetime import datetime
 
+from pathlib import Path  # python3 only
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+
 app = Flask(__name__)
-app.secret_key = "chonk"
-app.config["MONGO_DBNAME"] = 'extinction_rebellion'
-app.config["MONGO_URI"] = 'mongodb+srv://new:1234@firstcluster-jvp2j.mongodb.net/extinction_rebellion?retryWrites=true&w=majority'
+app.secret_key = os.getenv("SECRET_KEY")
+app.config["MONGO_DBNAME"] = os.getenv("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
@@ -75,7 +81,7 @@ def show_categories():
 @app.route('/categories/<category_name>')
 def single_category(category_name):
     selected_category = mongo.db.categories.find_one({"category_name": category_name})
-    records_from_category = mongo.db.repo.find({"category": category_name})
+    records_from_category = mongo.db.repo.find({"category": category_name}).sort("date_added", -1)
     return render_template("single_category.html", category=selected_category, records=records_from_category)
 
 # view asking user for confirmation after pressing delete
@@ -164,12 +170,12 @@ def sorting_by_votes():
     top_voted=mongo.db.repo.find().sort("votes", -1) # top voted first
     return render_template("records.html", records=top_voted)
 
-# if __name__ == '__main__':
-#     app.run(host=os.environ.get('IP'),
-#             port=int(os.environ.get('PORT')),
-#             debug=True)
-
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',
-            port='8000',
+    app.run(host=os.getenv("IP"),
+            port=int(os.getenv("PORT")),
             debug=True)
+
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0',
+#             port='8000',
+#             debug=True)

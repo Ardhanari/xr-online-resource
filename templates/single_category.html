@@ -2,7 +2,8 @@
 
 {% block breadcrumbs %}
 
-<a href ="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('show_categories') }}">Categories</a> > <a href="{{url_for('single_category', category_name=category.category_name)}}">{{ category.category_name }}</a>
+<a href="{{ url_for('get_records') }}">Home</a> > <a href="{{ url_for('show_categories') }}">Categories</a> > <a
+	href="{{url_for('single_category', category_name=category.category_name)}}">{{ category.category_name }}</a>
 
 {% endblock %}
 
@@ -12,29 +13,29 @@
 <h3>{{ category.category_name }}</h3>
 
 <!-- display records -->
-    {% for record in records %}
-        <div class="record">
-        <a href="record/{{record._id}}">
-            <h4>{{ record.title }}</h4></a>
-            Category: <a href="{{url_for('single_category', category_name=record.category)}}">{{ record.category }}</a><br>
-            Visit the link: <a href="{{ record.url }}" target="_blank">{{ record.url }}</a> <i class="material-icons new_tab">open_in_new</i>
+{% for record in records %}
+<div class="record">
+	<a href="record/{{record._id}}">
+		<h4>{{ record.title }}</h4>
+	</a>
+	<p>Category: <a href="{{url_for('single_category', category_name=record.category)}}">{{ record.category }}</a></p>
+	<p>Visit the link: <a href="{{ record.url }}" target="_blank">{{ record.url }}</a>
+		<i class="material-icons new_tab">open_in_new</i></p>
 
-        <div class="row">
-            <div class="col s4"><a href="{{url_for('display_record', record_id=record._id)}}">Details >></div>
-            <div class="col s4">
-        </div>
-        <!-- vote section -->
-        <div class="vote_count col s4">
-            {% if "username" in session %}
-            <a href="{{url_for('upvote_now', record_id=record._id)}}" class="yes"><i class="material-icons">thumb_up</i></a>
-            {% endif %}
+	<div class="row">
+		<div class="col s4"><a href="{{url_for('display_record', record_id=record._id)}}">Details >></div>
+		<div class="col s4">
+		</div>
+		<!-- vote section -->
+		<div class="vote_count col s4">
 
-            Upvoted <span class="vote_count">{{ record.votes }}</span> times
+			Upvoted <span class="vote_count">{{ record.votes }}</span> times
 
-        </div>
-        </div>
-        <div class="divider"></div>
-        </div>
-    {% endfor %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="divider"></div>
+	</div>
+	{% endfor %}
 
-{% endblock %}
+	{% endblock %}
