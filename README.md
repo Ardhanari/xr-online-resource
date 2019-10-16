@@ -1,4 +1,10 @@
 
+# Extinction Rebellion - online resource
+
+Extinction Rebellion - online aims to provide access to various resources across the internet on climate crisis, extinction rebellion and news and data in a user-friendly way. Different types of documents are grouped in categories and new entries can be added by anyone at any time. Logged in users can also edit and delete records as well as upvote these they deem valuable.
+
+![responsive view](https://i.imgur.com/sA8SKpa.png)
+
 ## Table of content
 
 ### 1. [Project Design](#Project-Design)
