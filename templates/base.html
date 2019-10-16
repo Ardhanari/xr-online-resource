@@ -60,14 +60,15 @@
 		<li><a href="{{ url_for('user_login') }}"><i class="material-icons left">check</i> Log in</a></li>
 		{%endif%}
 
-        <br>
-        <br>
-        <li><a class="subheader">What is it?</a></li>
-		    <li>
-			    <div class="user-view">
-			        <span class="white-text name">Simple resource allowing you to gather and browse references to articles, news and other materials online.
-                    Read more about this project on <a href="https://github.com/Ardhanari/xr-online-resource-5.10-backup-" target="_blank">GitHub</a></span></li>
-				</div>
+		<br>
+		<br>
+		<li><a class="subheader">What is it?</a></li>
+		<li>
+			<div class="user-view">
+				<span class="white-text name">Simple resource allowing you to gather and browse references to articles, news and other materials online.
+                    Read more about this project on <a href="https://github.com/Ardhanari/xr-online-resource-5.10-backup-" target="_blank">GitHub</a></span>
+		</li>
+		</div>
 	</ul>
 
 	<!-- content -->
@@ -78,7 +79,8 @@
 			<!--title-->
 			<div class="col l4 xl4 hide-on-med-and-down">
 				<div class="content-title"> <a href="{{ url_for('get_records')}}">
-					<h1 class="center-align">Extinction Rebellion - online resource</h1></a>
+						<h1 class="center-align">Extinction Rebellion - online resource</h1>
+					</a>
 					<div class="col l2 xl2"></div>
 					<div class="col l8 xl8 center-align description">Lorem ipsum dolor sit amet, consectetur adipiscing
 						elit. Aliquam tincidunt aliquet laoreet. Ut feugiat, mauris tristique aliquam condimentum, sem
@@ -98,10 +100,13 @@
 				<!--main content -->
 
 
-				{% with messages = get_flashed_messages() %} {% if messages %}
+				<!-- Flashed messages, if any -->
+				{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
 				<ul class=flashes>
-					{% for message in messages %}
-					<li>{{ message }}</li>
+					{% for category, message in messages %}
+					<div class="{{ category }}">
+						<li>{{ message }}</li>
+					</div>
 					{% endfor %}
 				</ul>
 				{% endif %} {% endwith %}

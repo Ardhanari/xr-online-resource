@@ -105,3 +105,25 @@ input, textarea, select,
 .delete_button {
     color: #F44336
 }
+
+/* styles for feedback flashes */
+
+.flashed-error {
+    margin: 30px;
+    padding: 20px;
+    display: block;
+    position: relative;
+    width: 300px;
+    color: #000000;
+    background-color: #F44336;
+}
+
+.flashed-success {
+    margin: 30px;
+    padding: 20px;
+    display: block;
+    position: relative;
+    width: 300px;
+    color: #000000;
+    background-color: #00FF66;
+}

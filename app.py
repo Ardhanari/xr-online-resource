@@ -51,7 +51,7 @@ def commit_record():
     form_values["votes"] = int(0)
     # inserts new record taking values form the form on /add
     records.insert_one(form_values)
-    flash('New entry added!')
+    flash('New entry added!', 'flashed-success')
     return redirect(url_for('get_records'))
 
 # route for updating existing record to the database
@@ -64,7 +64,7 @@ def update_record(record_id):
         'url': request.form.get('url'),
         'desc': request.form.get('desc'),
         'category': request.form.get('category')}})
-    flash('Entry updated!')
+    flash('Entry updated!', 'flashed-success')
     return redirect(url_for('get_records'))
 
 # view displaying categories available, together with their descriptions
@@ -90,7 +90,7 @@ def deleted(record_id):
     selected_record = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
     mongo.db.deleted.insert(selected_record)
     mongo.db.repo.remove(selected_record)
-    flash('Entry deleted!')
+    flash('Entry deleted!', 'flashed-success')
     return redirect(url_for('get_records'))
 
 # route for displaying login page
@@ -106,12 +106,12 @@ def user_login():
            if given_password == username_found["password"]:
                session["username"] = request.form["username"]
            else:
-               flash('Wrong password, try again!')
+               flash('Wrong password, try again!', 'flashed-error')
                return redirect(url_for('user_login'))
         else:
-            flash('Wrong username or password')
+            flash('Wrong username or password', 'flashed-error')
             return redirect(url_for('user_login'))
-        flash('You were just logged in')
+        flash('You were just logged in', 'flashed-success')
     # if user is already logged in, they are redirected to main page
     if "username" in session:
         return redirect(url_for('get_records'))
@@ -121,7 +121,7 @@ def user_login():
 def user_logout():
     # clears session entirely, removing cookie as well
     session.clear()
-    flash('You were logged out!')
+    flash('You were logged out!', 'flashed-success')
     return redirect(url_for('get_records'))
 
 # voting fuction
