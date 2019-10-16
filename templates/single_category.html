@@ -19,7 +19,7 @@
 		<h4>{{ record.title }}</h4>
 	</a>
 	<p>Category: <a href="{{url_for('single_category', category_name=record.category)}}">{{ record.category }}</a></p>
-	<p>Visit the link: <a href="{{ record.url }}" target="_blank">{{ record.url }}</a>
+	<p>Visit the link: <a href="{{ record.url }}" target="_blank" class="truncate">{{ record.url }}</a>
 		<i class="material-icons new_tab">open_in_new</i></p>
 
 	<div class="row">

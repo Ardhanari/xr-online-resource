@@ -104,6 +104,14 @@ a.vote_count {
     display: inline;
 }
 
+/* trims records' URLs that are too long to display */
+.truncate {
+    width: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .new_tab {
     font-size: 16px; /* size of material icon */
 }
