@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 load_dotenv()
-from flask import Flask, flash, render_template, redirect, request, session, url_for
+from flask import abort, Flask, flash, render_template, redirect, request, session, url_for
 # MongoDB for flask
 from flask_pymongo import PyMongo
 # This module allows you to create and parse ObjectIDs without a reference to the mongodb or bson modules.
@@ -37,6 +37,8 @@ def display_record(record_id):
 # route to display form allowing to edit selected record
 @app.route('/edit/<record_id>')
 def edit_record(record_id):
+    if "username" not in session:
+        abort(403)
     selected_record = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
     return render_template("edit-record.html", record=selected_record, categories=mongo.db.categories.find())
 
@@ -48,6 +50,8 @@ def add_record():
 # route commiting new record to the database
 @app.route('/commit_record', methods=["POST"])
 def commit_record():
+    if "username" not in session:
+        abort(403)
     records = mongo.db.repo
     # requests form values and places them in the dictionary
     form_values = request.form.to_dict()
@@ -63,6 +67,8 @@ def commit_record():
 # route for updating existing record to the database
 @app.route('/update_record/<record_id>', methods=["POST"])
 def update_record(record_id):
+    if "username" not in session:
+        abort(403)
     records = mongo.db.repo
     # edits existing record taking values form the form on /edit
     records.update({'_id': ObjectId(record_id)}, { '$set' :
@@ -87,12 +93,16 @@ def single_category(category_name):
 # view asking user for confirmation after pressing delete
 @app.route('/delete/<record_id>')
 def delete_record(record_id):
+    if "username" not in session:
+        abort(403)
     selected_record = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
     return render_template('delete.html', record=selected_record)
 
 # view asking user for confirmation after pressing delete
 @app.route('/record_deleted/<record_id>')
 def deleted(record_id):
+    if "username" not in session:
+        abort(403)
     selected_record = mongo.db.repo.find_one({"_id": ObjectId(record_id)})
     mongo.db.deleted.insert(selected_record)
     mongo.db.repo.remove(selected_record)
@@ -134,6 +144,8 @@ def user_logout():
 # upvote...
 @app.route('/upvote/<record_id>')
 def upvote_now(record_id):
+    if "username" not in session:
+        abort(403)
     mongo.db.repo.find_one_and_update(
         {'_id': ObjectId(record_id)},
         {'$inc': {'votes': 1}}
@@ -143,12 +155,13 @@ def upvote_now(record_id):
 # ...and removing the upvote
 @app.route('/removevote/<record_id>')
 def removevote_now(record_id):
+    if "username" not in session:
+        abort(403)
     mongo.db.repo.find_one_and_update(
         {'_id': ObjectId(record_id)},
         {'$inc': {'votes': -1}}
     )
     return render_template("thumb_cancel.html", record=mongo.db.repo.find_one({'_id': ObjectId(record_id)}))
-
 
 # sorting by...
 # ...date added
@@ -173,6 +186,11 @@ def sorting_by_votes():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+# handles 403 error (user not logged in)
+@app.errorhandler(403)
+def page_forbidden(e):
+    return render_template('403.html'), 403
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))

@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %}403!{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<div class="input-field col s12">
+		<h4>Nuh-uh-uh!</h4>
+
+		<div class="row">
+			You are not logged in!
+            <br>
+            Please <a href="{{ url_for('user_login') }}">log in</a> first.
+		</div>
+	</div>
+</div>
+{% endblock %}
