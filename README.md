@@ -98,7 +98,7 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 -   ...and deleting the record entirely (delete) - at least from accessing it from the front-end, the records are moved to a hidden collection, as a way of protecting perfectly valid records to be lost due to a mistake or malicious action.
 -   Easy way to add new entries - user fills out the form and the link with all it’s information is added to the database instantly (create)
 
-**Important!** Some options are only available for logged in users. To access them use credentials stored in [CREDENTIALS.md](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/blob/master/CREDENTIALS.md)
+**Important!** Some options are only available for logged in users. To access them use credentials stored in [CREDENTIALS.md](https://github.com/Ardhanari/xr-online-resource/blob/master/CREDENTIALS.md)
 
 ### Existing features
 
@@ -248,9 +248,9 @@ Tests documented in the test matrix were performed to test usibility and functio
 The following bugs were found when performing the initial tests.
 
 - using 'back' and 'forward' buttons in the browser sometimes causes record_id to be lost and makes URL broken.
-    - one way to solve is to create custom 404 page (done in one of the [commits](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commit/bb84b5f61da69522d91c629d351621b5d04480f9)),
+    - one way to solve is to create custom 404 page (done in one of the [commits](https://github.com/Ardhanari/xr-online-resource/commit/bb84b5f61da69522d91c629d351621b5d04480f9)),
     - the other way: to catch these errors and prevent them
-- editing record would remove its date and number of votes (fixed in one of the [commits](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commit/22a430cfefb0cc097a6d4abf00de894cd382e9df))
+- editing record would remove its date and number of votes (fixed in one of the [commits](https://github.com/Ardhanari/xr-online-resource/commit/22a430cfefb0cc097a6d4abf00de894cd382e9df))
 
 ## Technologies Used
 ### Tools
@@ -294,7 +294,7 @@ The following bugs were found when performing the initial tests.
 ### Deployment
 
 -   This project was developed using the AWS Cloud9 and GitPod.
--   This project was regularly pushed to its GitHub repository [https://github.com/Ardhanari/xr-online-resource-5.10-backup-](https://github.com/Ardhanari/xr-online-resource-5.10-backup-), full list of commits is available at [https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commits/master](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commits/master)
+-   This project was regularly pushed to its GitHub repository [https://github.com/Ardhanari/xr-online-resource](https://github.com/Ardhanari/xr-online-resource), full list of commits is available at [https://github.com/Ardhanari/xr-online-resource/commits/master](https://github.com/Ardhanari/xr-online-resource/commits/master)
 -   The project was deployed on [Heroku](http://xr-online-resource.herokuapp.com/)
 
 
@@ -303,7 +303,7 @@ The following bugs were found when performing the initial tests.
 
 You need Python3, pip, Git and MongoDB to run this project locally.
 
-1.  Go to [this page](https://github.com/Ardhanari/xr-online-resource-5.10-backup-) and click on ‘Clone or download’ button
+1.  Go to [this page](https://github.com/Ardhanari/xr-online-resource) and click on ‘Clone or download’ button
 2.  Copy the URL from ‘Clone with HTTPS’ tab
 3.  Open your terminal/bash
 4.  While being in the location you want the cloned directory to be saved, type git clone and paste the URL that you copied, accept with Enter
