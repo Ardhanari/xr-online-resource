@@ -307,12 +307,13 @@ You need Python3, pip, Git and MongoDB to run this project locally.
 2.  Copy the URL from ‘Clone with HTTPS’ tab
 3.  Open your terminal/bash
 4.  While being in the location you want the cloned directory to be saved, type git clone and paste the URL that you copied, accept with Enter
-5.  Create virtual environment with environment variables (IP, PORT, MONGO_URI, SECRET_KEY)
+5.  Create virtual environment with environment variables (IP, PORT, MONGO_URI, MONGO_DBNAME, SECRET_KEY)
     OR:
     -   Define these variables in app.py as follows:
     -   'IP', '0.0.0.0'
     -   'PORT', '8000'
     -   'SECRET_KEY', your string of choice
+    -   'MONGO_DBNAME', name of your database
     -   'MONGO_URI', mongo_uri of your database, see [documentation](https://docs.atlas.mongodb.com/driver-connection/)
 6.  Install all required modules from requirements.txt using pip3 install -r requirements.txt in your terminal
 7.  Now the project is ready to be run locally
@@ -330,6 +331,7 @@ You need Python3, pip, Git and MongoDB to run this project locally.
     -   IP - ‘0.0.0.0’
     -   PORT - ‘8000’
     -   MONGO_URI - mongo_uri of your database, see [documentation](https://docs.atlas.mongodb.com/driver-connection/)
+    -   'MONGO_DBNAME', name of your database
     -   SECRET_KEY - key of your choice
     -   DEBUG - ‘False’
 10.  Your site is now succesfully deployed on Heroku.
