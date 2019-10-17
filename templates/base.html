@@ -36,8 +36,7 @@
 					<li><a href="{{ url_for('get_records') }}"><i class="material-icons left">home</i> Home</a></li>
 					<li><a href="{{ url_for('add_record') }}"><i class="material-icons left">add</i> Add new link</a>
 					</li>
-					<li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">folder</i>
-							Categories</a>
+					<li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">folder</i>Categories</a>
 					</li>
 					{% if "username" in session %}
 					<li><a href="{{ url_for('user_logout') }}"><i class="material-icons left">close</i> Log out</a></li>
