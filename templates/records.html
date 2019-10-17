@@ -32,7 +32,7 @@
 		</div>
 		<!-- vote section -->
 		<div class="vote_count col s4">
-			Upvoted <span class="vote_count">{{ record.votes }}</span> times
+			Upvoted <span class="vote_count">{{ record.votes }}</span> time{% if record.votes != 1 %}s{% endif %}
 		</div>
 	</div>
 	<div class="row">
