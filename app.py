@@ -50,8 +50,6 @@ def add_record():
 # route commiting new record to the database
 @app.route('/commit_record', methods=["POST"])
 def commit_record():
-    if "username" not in session:
-        abort(403)
     records = mongo.db.repo
     # requests form values and places them in the dictionary
     form_values = request.form.to_dict()
