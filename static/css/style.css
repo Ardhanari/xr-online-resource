@@ -140,24 +140,23 @@ input, textarea, select,
 /* styles for feedback flashes */
 
 .flashed-error {
-    margin: 30px;
     padding: 20px;
     display: block;
     position: relative;
-    width: 300px;
+    width: 100%;
     color: #000000;
     background-color: #F44336;
 }
 
 .flashed-success {
-    margin: 30px;
     padding: 20px;
     display: block;
     position: relative;
-    width: 300px;
+    width: 100%;
     color: #000000;
     background-color: #00FF66;
 }
+
 @media only screen and (min-width: 992px) {
     .records {
         padding: 10px 50px 0px 50px;
@@ -171,5 +170,25 @@ input, textarea, select,
 
     .no-records-found {
         margin: 50px;
+    }
+
+    .flashed-error {
+        margin: 30px;
+        padding: 20px;
+        display: block;
+        position: relative;
+        width: 300px;
+        color: #000000;
+        background-color: #F44336;
+    }
+
+    .flashed-success {
+        margin: 30px;
+        padding: 20px;
+        display: block;
+        position: relative;
+        width: 300px;
+        color: #000000;
+        background-color: #00FF66;
     }
 }
