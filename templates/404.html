@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block title %}404!{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<div class="input-field col s12">
+		<h4>Oh dear, this link isn't working!</h4>
+
+		<div class="row">
+			Go somewhere nice:
+			<p>
+				<ul>
+					<li><a href="{{ url_for('get_records')}}"><i class="material-icons left">home</i> Browse records</a></li><br>
+					<li><a href="{{ url_for('show_categories') }}"><i class="material-icons left">folder</i> Browse categories</a></li><br>
+					<li><a href="{{ url_for('add_record') }}"><i class="material-icons left">add</i> Add new link</a></li>
+				</ul>
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -169,6 +169,10 @@ def sorting_by_votes():
     top_voted=mongo.db.repo.find().sort("votes", -1) # top voted first
     return render_template("records.html", records=top_voted)
 
+# handles 404 errors
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
