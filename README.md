@@ -3,6 +3,8 @@
 
 Extinction Rebellion - online aims to provide access to various resources across the internet on climate crisis, extinction rebellion and news and data in a user-friendly way. Different types of documents are grouped in categories and new entries can be added by anyone at any time. Logged in users can also edit and delete records as well as upvote these they deem valuable.
 
+It is available at [http://xr-online-resource.herokuapp.com/](http://xr-online-resource.herokuapp.com/)
+
 ![responsive view](https://i.imgur.com/sA8SKpa.png)
 
 ## Table of content
@@ -35,14 +37,13 @@ Extinction Rebellion - online aims to provide access to various resources across
 The objective for me while building this website was to achieve maximum usability in minimalistic look. The site is supposed to be lightweight, toned and serve its main purpose above everything else - provide easy access to resources spread across the internet. Therefore, no pictures and redundant elements are present across the website.
 
 
-
 ### Design
 
 The process started with creating mockups that served as a guide as to what pages should be created, how the information should be spread across them and how they are supposed to look like.
 
 The design was based loosely on Extinction Rebellion main design programme as well as inspired by [posters designed for Polish branch of XR](https://drive.google.com/open?id=1KUBdPTM1kT6CaU6jUGheIx_EsBva6fC5).
 
-**[mention any changes between mockups and final project]**
+Mockups can be found in the [figma project](https://www.figma.com/file/eTqiDRalDyelCxlZmj6gWq/XR-online-resource?node-id=0%3A1)
 
 ### Colours
 
@@ -62,20 +63,14 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 ### Fonts
 
 -   The resource uses two fonts across all pages - Fuxced Caps, which is offcial Extinction Rebellion font and simple sans-serif font.
-
 -   The reasoning behind it was simple - one is brand font specified by XR brand guide and is used for titles and headings, the other is there just to make sure the rest of the website displays properly.
-
 
 ### User objectives
 
 -   The website has been designed for people needing access to various resources spread across the internet. We all probably were in that place before, where we know something (article, document, video) exists, but any attempt to googling brings no relevant results. This small database is intended to make this process easier.
-
 -   Links are grouped by categories. Categories represent type of media referenced in the database: Articles, News, Social media posts, Blogs/Vlogs, offline sources, Documents, Other sources. This reasoning was chosen above other proposed categories split. The other proposed solution was to group resources by their themes. Unfortunately in many cases, resources are either multi-thematic. Another issue with that solution was defining categories and making them crystal clear to the end user. Categories representing types of resources rather than their subjects/themes are more strict and therefore easier to understand and use.
-
 -   Voting option (available to logged in users) allows users to vote on helpful resources, so they appear higher on the page (and may be noticed by others) more easily.
-
 -   All users can add links, logged in users can on top of that edit records if they feel like they can improve them or delete these, that are irrelevant.
-
 
 ### Developers objectives
 
@@ -83,127 +78,101 @@ On the other hand, placing the elements on the pages makes sure that, despite li
 -   Adding little brick to the global project such as Extinction Rebellion
 -   Portfolio use
 
-
 ### User stories
 
-- User engaging in the online discussion, needing specific links as arguments
-- User searching a resource they remember but cannot find via google
-- User looking for more information on a specific subject
+-   User engaging in the online discussion, needing specific links as arguments
+-   User searching a resource they remember but cannot find via google
+-   User looking for more information on a specific subject
 
 ### Hopes for the website are:
 
--   To serve its purpose, at least in limited capacity
-
+-   To serve its purpose, at least in a limited capacity
 
 ## Features
 
 -   Easy access to all records on the main page (read)
-
 -   Voting function on each record, allowing user to have an influence over how the records are sorted/displayed by default
-
 -   Option to sort records by date added or number of votes
-
 -   Every record have it’s own detail page, that displays additional informations/options
-
 -   including editing the information about the record (update)...
-
 -   ...and deleting the record entirely (delete) - at least from accessing it from the front-end, the records are moved to a hidden collection, as a way of protecting perfectly valid records to be lost due to a mistake or malicious action.
-
 -   Easy way to add new entries - user fills out the form and the link with all it’s information is added to the database instantly (create)
 
-**Important** Some options are only available for logged in users. To access them use credentials stored in [CREDENTIALS.md](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/blob/master/CREDENTIALS.md)
+**Important!** Some options are only available for logged in users. To access them use credentials stored in [CREDENTIALS.md](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/blob/master/CREDENTIALS.md)
 
 ### Existing features
 
 #### Navigation
 
 -   Following links are visible: Home, Add new link, Categories and Log in (or Log out if user is already logged in)
-
 -   Users on mobile devices have these in foldable menu
-
 -   Desktop users have these on the top of the site in a fixed navigation bar
 
-
 ##### Breadcrumbs
-- Allow easy navigation between pages without using browser's 'back' and 'forward' buttons
+
+-   Allow easy navigation between pages without using browser's 'back' and 'forward' buttons
 
 #### Pages:
 
 ##### Home Page
 
 -   Displays all records from the repo collection, from newest to oldest, with their title, category, URL and upvotes.
-
 -   Allows sorting displayed records by the time they were added or number of upvotes
-
 -   Allows to access their detail pages as well as go straight to the source material
-
 
 ##### Login
 
 -   Allows user to log in, if their profile was created before
-
 -   As of the time of writing this document, user cannot register themselves.
-
 
 ##### Browse categories
 
 -   Provides overview of all categories available, along with their short descriptions (if available)
 
-
 ##### Single category
 
 -   Displays all records belonging to selected category in the same style as Home Page
 
-
 ##### Single Record
 
 -   Displays detailed information on a single record - that includes everything displayed on the homepage + its description
-
 -   Allows logged in users to vote on a record
-
 -   Allows logged in users to edit or delete a record
-
 
 ##### Add Record
 
 -   Contains form allowing user to add new entry to the database
-
 -   Obligatory fields: Title, URL (validated), Category
-
 -   Description field is not obligatory
-
 
 ##### Edit Record
 
 -   Displays the same form as ‘Add record’ page but with fields pre-populated with existing information
-
 -   Keeps existing ‘date_added’ and ‘votes’ values behind the scenes
-
 -   Disallows saving the record with empty fields
-
 
 ##### Confirm Deletion
 
 -   Offers one last step before deleting the record from the collection
 
-
 ### Features left to implement
 
 ####  SECURITY???
 ![](https://i.imgur.com/xvW4iAR.png?1)
-- This project is initially released with barely any security at all. What is lacking and will be amended as soon as possible is:
+-   This project is initially released with barely any security at all. What is lacking and will be amended as soon as possible is:
 	- secure password storage
 	- registration available to users and confirmed by email, together with protection from spamming db with fake users data
 	- option to reset/change password by user
     - better cookie storage and session management
 
 #### Search
-
--  It's not a proper repository without keyword search. This feature was cut from initial release due to various instances of force majeure during development of this project.
+-  It's not a proper repository without keyword search. This feature was cut from initial release due to several instances of force majeure during development of this project.
 
 #### Voting
-- This needs to be improved to allow voting only oncer per record per user.
+-  This needs to be improved to allow voting only oncer per record per user.
 
+#### Better error handling
+-  While no errors were left unfixed during development process, some of the soft spots are not error-proof (especially adding/editing/deleting records). Handling errors around these needs to be added in case of unspecified instance of 'somethng went wrong'.
 
 ## Information Architecture
 
@@ -271,17 +240,15 @@ Follows the same structure as documents in Repo.
 
 ## User testing
 
-The following tests were performed to test usibility and functionality. At the time of a final testing, all features passed the functionality test as expected.
-
--   **(describe tests)**
-
+Tests documented in the test matrix were performed to test usibility and functionality across different screens/devices. At the time of a final testing, all features passed the functionality test as expected.
+![test matrix](https://i.imgur.com/jbRXKAu.png?1)
 
 ### Bugs found during development and initial testing
 
 The following bugs were found when performing the initial tests.
 
 - using 'back' and 'forward' buttons in the browser sometimes causes record_id to be lost and makes URL broken.
-    - one way to solve is to create custom 404 page,
+    - one way to solve is to create custom 404 page (done in one of the [commits](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commit/bb84b5f61da69522d91c629d351621b5d04480f9)),
     - the other way: to catch these errors and prevent them
 - editing record would remove its date and number of votes (fixed in one of the [commits](https://github.com/Ardhanari/xr-online-resource-5.10-backup-/commit/22a430cfefb0cc097a6d4abf00de894cd382e9df))
 
